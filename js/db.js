@@ -27,10 +27,10 @@ db.collection('recipes').onSnapshot(snapshot => {
       if(b){
         renderRecipe1(change.doc.data(), change.doc.id);
       }
-      var c = document.querySelector('.recipeshome2');
-      if(c){
-        renderRecipe2(change.doc.data(), change.doc.id);
-      }
+      // var c = document.querySelector('.recipeshome2');
+      // if(c){
+      //   renderRecipe2(change.doc.data(), change.doc.id);
+      // }
     }
     if(change.type === 'removed'){
       // remove the document data from the web page
