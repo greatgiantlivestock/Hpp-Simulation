@@ -47,6 +47,11 @@ db.collection('recipes').onSnapshot(snapshot => {
         // removeRecipe(change.doc.id);
         updateRenderRecipe(change.doc.data(), change.doc.id);
       }
+      var b = document.querySelector('.recipeshome1');
+      if(b){
+        // removeRecipe(change.doc.id);
+        updateRenderRecipe1(change.doc.data(), change.doc.id);
+      }
       // window.location.href = "/pages/about.html";
       // updateRecipe(change.doc.data(), change.doc.id);
     }
