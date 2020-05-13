@@ -40,8 +40,6 @@ db.collection('recipes').onSnapshot(snapshot => {
       // update the document data from the web page
       // console.log(change.doc.data());
       console.log("modified");
-      document.getElementById("success_dlg").style.visibility = "visible";
-      setTimeout(function(){ document.getElementById("success_dlg").style.visibility = "hidden"; }, 1500);
       var a = document.querySelector('.recipeshome');
       if(a){
         // removeRecipe(change.doc.id);
@@ -96,6 +94,8 @@ if(recipeContainer){
       // console.log(document.getElementById('feed').value);
       // const id = evt.target.getAttribute('data-id');
       const id = document.getElementById('btn_update').value;
+      document.getElementById("success_dlg").style.visibility = "visible";
+      setTimeout(function(){ document.getElementById("success_dlg").style.visibility = "hidden"; }, 1500);
       // db.collection("recipes").doc(id).update({feed_cost: document.getElementById('feed').value});
       db.collection('recipes').doc(id).update({
         feed_cost: document.getElementById('feed1').value,
