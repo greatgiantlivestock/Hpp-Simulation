@@ -449,7 +449,7 @@ const renderRecipe1 = (data, id) => {
               <tr style="border:none;">
                 <td colspan="2">  
                   <div class="recipe-ingredients-result">
-                    <label style="font-size: 13px;font-weight: bold;">Total Cattle Cost</label>
+                    <label style="font-size: 13px;">Total Cattle Cost</label>
                     <input id="cattle_cost12" type="number" value="" class="validate">
                   </div> 
                 </td>
@@ -507,7 +507,7 @@ const renderRecipe1 = (data, id) => {
               <tr style="border:none;">
                 <td colspan="2">
                   <div class="recipe-ingredients">
-                    <label for="title">Purchase Price</label>
+                    <label for="title" style="font-weight: bold;">Purchase Price</label>
                     <input disabled style="background-color:#f2f2f2;" id="purchase_price12" onkeyup="cal_all2()" value="" type="number" class="validate">
                   </div>
                 </td>
