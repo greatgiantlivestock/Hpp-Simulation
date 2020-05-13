@@ -113,7 +113,7 @@ const renderRecipe = (data, id) => {
                 <td colspan="2">
                   <div class="recipe-ingredients-result">
                     <label style="font-size: 13px;font-weight: bold;">Total Cattle Cost</label>
-                    <input disabled style="background-color:#f2f2f2;" id="cattle_cost1" type="number" value="" class="validate">
+                    <input disabled style="background-color:#d8f2c7;font-weight: bold;" id="cattle_cost1" type="number" value="" class="validate">
                   </div> 
                 </td>
               </tr>
@@ -428,7 +428,7 @@ const renderRecipe1 = (data, id) => {
   const html = `
       <div id="id_nav" class="card-panel recipe white row" data-id="${id}">
         <div class="recipe-details">
-            <div class="recipe-title">Total Cattle Cost Calculation</div>
+            <div class="recipe-title">Purchase Price Calculation</div>
             <div></div>
             <form>
             <table>
@@ -508,7 +508,7 @@ const renderRecipe1 = (data, id) => {
                 <td colspan="2">
                   <div class="recipe-ingredients">
                     <label for="title" style="font-weight: bold;">Purchase Price</label>
-                    <input disabled style="background-color:#f2f2f2;" id="purchase_price12" onkeyup="cal_all2()" value="" type="number" class="validate">
+                    <input disabled style="background-color: #d8f2c7;font-weight: bold;" id="purchase_price12" onkeyup="cal_all2()" value="" type="number" class="validate">
                   </div>
                 </td>
               </tr>
