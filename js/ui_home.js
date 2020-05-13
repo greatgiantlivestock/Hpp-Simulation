@@ -744,12 +744,12 @@ function cal_all2(){
   var val_adg = Number(document.getElementById('adg12').value);
   document.getElementById('dof12').value = (val_cattle_sold_weight/val_adg)-(val_cattle_weight/val_adg);
 
-  var stfeed_cost = Number(document.getElementById('feed_cost2').value)*Number(document.getElementById('dof12').value);
-  var stmed_cost = Number(document.getElementById('med_cost2').value)*Number(document.getElementById('dof12').value);
-  var stlabour_cost = Number(document.getElementById('labour_cost2').value)*Number(document.getElementById('dof12').value);
-  var stfoh = Number(document.getElementById('foh2').value)*Number(document.getElementById('dof12').value);
+  var stfeed_cost = Number(document.getElementById('feed_cost2').textContent)*Number(document.getElementById('dof12').value);
+  var stmed_cost = Number(document.getElementById('med_cost2').textContent)*Number(document.getElementById('dof12').value);
+  var stlabour_cost = Number(document.getElementById('labour_cost2').textContent)*Number(document.getElementById('dof12').value);
+  var stfoh = Number(document.getElementById('foh2').textContent)*Number(document.getElementById('dof12').value);
   var sttot = stfeed_cost+stmed_cost+stlabour_cost+stfoh;
-  var stopex_int = Number(document.getElementById('opex_int2').value)*Number(document.getElementById('dof12').value);
+  var stopex_int = Number(document.getElementById('opex_int2').textContent)*Number(document.getElementById('dof12').value);
 
   document.getElementById('stfeed_cost2').innerHTML = Math.ceil(stfeed_cost);
   document.getElementById('stfeed_cost12').innerHTML = Math.ceil(stfeed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
