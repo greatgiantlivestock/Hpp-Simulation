@@ -1,6 +1,6 @@
 const recipes = document.querySelector('.recipeshome');
 const recipes1 = document.querySelector('.recipeshome1');
-// const recipes2 = document.querySelector('.recipeshome2');
+const recipes2 = document.querySelector('.recipeshome2');
 
 document.addEventListener('DOMContentLoaded', function() {
   // nav menu
@@ -791,19 +791,12 @@ function cal_all2(){
 // };
 
 // render recipe2 data
-// const renderRecipe2 = (data, id) => {
-//   const html = `
-//       <div class="card-panel recipe white row" data-id="${id}">
-//         <div class="recipe-details">
-//           <form class="add-recipe container section" autocomplete="off">
-//             <div class="recipe-title">Under Construction</div>
-//             <div></div>
-//           </form>  
-//         </div>
-//       </div>
-//   `;
-//   recipes2.innerHTML += html;
-// };
+const renderRecipe2 = (data, id) => {
+  const html = `
+      
+  `;
+  recipes2.innerHTML += html;
+};
 
 //remove recipe from
 const removeRecipe = (id) => {
