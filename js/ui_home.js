@@ -40,80 +40,80 @@ const renderRecipe = (data, id) => {
               <tr style="border:none;">
                 <td style="width:65%">  
                   <div class="recipe-ingredients">
-                    <label for="title">Rate</label>
-                    <input id="rate1" onkeyup="cal_all()"  step="any" type="number" value="" class="validate">
+                    <label for="title">Rate (Rp/USD)</label>
+                    <input id="rate1" onkeyup="cal_all()" step="any" type="number" value="${data.rate}" class="validate">
                   </div>
                 </td>
                 <td style="width:35%">
                   <div class="recipe-ingredients">
-                    <label for="title">Purchase Price</label>
-                    <input id="purchase_price1" onkeyup="cal_all()" value=""   step="any" type="number" class="validate">
+                    <label for="title">Purchase Price (USD/Kg)</label>
+                    <input id="purchase_price1" onkeyup="cal_all()" value="${data.purchase_price}" step="any" type="number" class="validate">
                   </div>
                 </td>
               </tr>
               <tr style="border:none;">
                 <td colspan="2">  
                   <div class="recipe-ingredients">
-                    <label for="title">Cattle Weight</label>
-                    <input id="cattle_weight1" onkeyup="cal_all()"  step="any" type="number" value="" class="validate">
+                    <label for="title">Cattle Weight (Kg/Head)</label>
+                    <input id="cattle_weight1" onkeyup="cal_all()"  step="any" type="number" value="${data.cattle_weight}" class="validate">
                   </div>
                 </td>
               </tr>
               <tr style="border:none;">
                 <td>
                   <div class="recipe-ingredients">
-                    <label for="title">Purchase Price (all)</label>
-                    <input id="purchase_price_all1" onkeyup="cal_all()" disabled style="background-color:#f2f2f2;"  step="any" type="number" value="" class="validate">
+                    <label for="title">Purchase Price all (Rp/Kg)</label>
+                    <input id="purchase_price_all1" onkeyup="cal_all()" disabled style="background-color:#f2f2f2;"  step="any" type="number" value="${data.purchase_price_all}" class="validate">
                   </div>
                 </td>
                 <td>
                   <div class="recipe-ingredients">
-                    <label for="title">Cattle sold weight</label>
-                    <input id="cattle_sold_weight1" onkeyup="cal_all()" disabled style="background-color:#f2f2f2;"  step="any" type="number" value="" class="validate">
+                    <label for="title">Cattle sold weight (Kg/Head)</label>
+                    <input id="cattle_sold_weight1" onkeyup="cal_all()" disabled style="background-color:#f2f2f2;"  step="any" type="number" value="${data.cattle_sold_weight}" class="validate">
                   </div>
                 </td>
               </tr>
               <tr style="border:none;">
                 <td>
                   <div class="recipe-ingredients">
-                    <label for="title">Assumption DoF</label>
-                    <input id="dof1"  step="any" type="number" onkeyup="cal_all()" value="" class="validate">
+                    <label for="title">Assumption DoF (Days)</label>
+                    <input id="dof1"  step="any" type="number" onkeyup="cal_all()" value="${data.dof}" class="validate">
                   </div>
                 </td>
                 <td>
                   <div class="recipe-ingredients">
-                    <label for="title">Assumption ADG</label>
-                    <input id="adg1"  step="any" type="number" onkeyup="cal_all()" value="" class="validate">
+                    <label for="title">Assumption ADG (Kg/Days)</label>
+                    <input id="adg1"  step="any" type="number" onkeyup="cal_all()" value="${data.adg}" class="validate">
                   </div>
                 </td>
               </tr>
               <tr style="border:none;">
                 <td colspan="2">
                   <div class="recipe-ingredients">
-                    <label for="title">Cattle Purchase</label>
-                    <input id="cattle_purchase1" onkeyup="cal_all()" disabled style="background-color:#f2f2f2;"  step="any" type="number" value="" class="validate">
+                    <label for="title">Cattle Purchase (Rp/Kg)</label>
+                    <input id="cattle_purchase1" onkeyup="cal_all()" disabled style="background-color:#f2f2f2;"  step="any" type="number" value="${data.cattle_purchase}" class="validate">
                   </div>
                 </td>
               </tr>
               <tr style="border:none;">
                 <td>
                   <div class="recipe-ingredients">
-                    <label for="title">Direct Cost</label>
-                    <input id="direct_cost1"  step="any" type="number" disabled style="background-color:#f2f2f2;" value="" class="validate">
+                    <label for="title">Direct Cost (Rp/Kg)</label>
+                    <input id="direct_cost1"  step="any" type="number" disabled style="background-color:#f2f2f2;" value="${data.direct_cost}" class="validate">
                   </div>
                 </td>
                 <td>
                   <div class="recipe-ingredients">
-                    <label for="title">OH + interest</label>
-                    <input id="oh_interest1"  step="any" type="number" disabled style="background-color:#f2f2f2;" value="" class="validate">
+                    <label for="title">OH + interest (Rp/Kg)</label>
+                    <input id="oh_interest1"  step="any" type="number" disabled style="background-color:#f2f2f2;" value="${data.oh_interest}" class="validate">
                   </div>
                 </td>
               </tr>
               <tr style="border:none;">
                 <td colspan="2">
                   <div class="recipe-ingredients-result">
-                    <label style="font-size: 13px;font-weight: bold;">Total Cattle Cost</label>
-                    <input disabled style="background-color:#d8f2c7;font-weight: bold;" id="cattle_cost1"  step="any" type="number" value="" class="validate">
+                    <label style="font-size: 13px;font-weight: bold;">Total Cattle Cost (Rp/Kg)</label>
+                    <input disabled style="background-color:#d8f2c7;font-weight: bold;" id="cattle_cost1"  step="any" type="number" value="${data.cattle_cost}" class="validate">
                   </div> 
                 </td>
               </tr>
@@ -435,80 +435,80 @@ const renderRecipe1 = (data, id) => {
               <tr style="border:none;">
                 <td style="width:65%">  
                   <div class="recipe-ingredients">
-                    <label for="title">Rate</label>
-                    <input id="rate12" onkeyup="cal_all2()"  step="any" type="number" value="" class="validate">
+                    <label for="title">Rate (Rp/USD)</label>
+                    <input id="rate12" onkeyup="cal_all2()"  step="any" type="number" value="${data.rate}" class="validate">
                   </div>
                 </td>
                 <td style="width:35%">
                   <div class="recipe-ingredients">
-                    <label for="title">Cattle Weight</label>
-                    <input id="cattle_weight12" onkeyup="cal_all2()"  step="any" type="number" value="" class="validate">
+                    <label for="title">Cattle Weight (Kg/Head)</label>
+                    <input id="cattle_weight12" onkeyup="cal_all2()"  step="any" type="number" value="${data.cattle_weight}" class="validate">
                   </div>  
                 </td>
               </tr>
               <tr style="border:none;">
                 <td colspan="2">  
                   <div class="recipe-ingredients-result">
-                    <label style="font-size: 13px;">Total Cattle Cost</label>
-                    <input id="cattle_cost12"  step="any" type="number" value="" class="validate">
+                    <label style="font-size: 13px;">Total Cattle Cost (Rp/Kg)</label>
+                    <input id="cattle_cost12"  step="any" type="number" value="${data.cattle_cost}" class="validate">
                   </div> 
                 </td>
               </tr>
               <tr style="border:none;">
                 <td>
                   <div class="recipe-ingredients">
-                    <label for="title">Purchase Price (all)</label>
-                    <input id="purchase_price_all12" onkeyup="cal_all2()" disabled style="background-color:#f2f2f2;"  step="any" type="number" value="" class="validate">
+                    <label for="title">Purchase Price all (Rp/Kg)</label>
+                    <input id="purchase_price_all12" onkeyup="cal_all2()" disabled style="background-color:#f2f2f2;"  step="any" type="number" value="${data.purchase_price_all}" class="validate">
                   </div>
                 </td>
                 <td>
                   <div class="recipe-ingredients">
-                    <label for="title">Cattle sold weight</label>
-                    <input id="cattle_sold_weight12" onkeyup="cal_all2()"  step="any" type="number" value="" class="validate">
+                    <label for="title">Cattle sold weight (Kg/Head)</label>
+                    <input id="cattle_sold_weight12" onkeyup="cal_all2()"  step="any" type="number" value="${data.cattle_sold_weight}" class="validate">
                   </div>
                 </td>
               </tr>
               <tr style="border:none;">
                 <td>
                   <div class="recipe-ingredients">
-                    <label for="title">Assumption DoF</label>
-                    <input disabled style="background-color:#f2f2f2;" id="dof12"  step="any" type="number" onkeyup="cal_all2()" value="" class="validate">
+                    <label for="title">Assumption DoF (Days)</label>
+                    <input disabled style="background-color:#f2f2f2;" id="dof12"  step="any" type="number" onkeyup="cal_all2()" value="${data.dof}" class="validate">
                   </div>
                 </td>
                 <td>
                   <div class="recipe-ingredients">
-                    <label for="title">Assumption ADG</label>
-                    <input id="adg12"  step="any" type="number" onkeyup="cal_all2()" value="" class="validate">
-                  </div>
-                </td>
-              </tr>
-              <tr style="border:none;">
-                <td colspan="2">
-                  <div class="recipe-ingredients">
-                    <label for="title">Cattle Purchase</label>
-                    <input id="cattle_purchase12" onkeyup="cal_all2()" disabled style="background-color:#f2f2f2;"  step="any" type="number" value="" class="validate">
-                  </div>
-                </td>
-              </tr>
-              <tr style="border:none;">
-                <td>
-                  <div class="recipe-ingredients">
-                    <label for="title">Direct Cost</label>
-                    <input id="direct_cost12"  step="any" type="number" disabled style="background-color:#f2f2f2;" value="" class="validate">
-                  </div>
-                </td>
-                <td>
-                  <div class="recipe-ingredients">
-                    <label for="title">OH + interest</label>
-                    <input id="oh_interest12"  step="any" type="number" disabled style="background-color:#f2f2f2;" value="" class="validate">
+                    <label for="title">Assumption ADG (Kg/Day)</label>
+                    <input id="adg12"  step="any" type="number" onkeyup="cal_all2()" value="${data.adg}" class="validate">
                   </div>
                 </td>
               </tr>
               <tr style="border:none;">
                 <td colspan="2">
                   <div class="recipe-ingredients">
-                    <label for="title" style="font-weight: bold;">Purchase Price</label>
-                    <input disabled style="background-color: #d8f2c7;font-weight: bold;" id="purchase_price12" onkeyup="cal_all2()" value=""  step="any" type="number" class="validate">
+                    <label for="title">Cattle Purchase (Rp/Kg)</label>
+                    <input id="cattle_purchase12" onkeyup="cal_all2()" disabled style="background-color:#f2f2f2;"  step="any" type="number" value="${data.cattle_purchase}" class="validate">
+                  </div>
+                </td>
+              </tr>
+              <tr style="border:none;">
+                <td>
+                  <div class="recipe-ingredients">
+                    <label for="title">Direct Cost (Rp/Kg)</label>
+                    <input id="direct_cost12"  step="any" type="number" disabled style="background-color:#f2f2f2;" value="${data.direct_cost}" class="validate">
+                  </div>
+                </td>
+                <td>
+                  <div class="recipe-ingredients">
+                    <label for="title">OH + interest (Rp/Kg)</label>
+                    <input id="oh_interest12"  step="any" type="number" disabled style="background-color:#f2f2f2;" value="${data.oh_interest}" class="validate">
+                  </div>
+                </td>
+              </tr>
+              <tr style="border:none;">
+                <td colspan="2">
+                  <div class="recipe-ingredients">
+                    <label for="title" style="font-weight: bold;">Purchase Price (USD/Kg)</label>
+                    <input disabled style="background-color: #d8f2c7;font-weight: bold;" id="purchase_price12" onkeyup="cal_all2()" value="${data.purchase_price}"  step="any" type="number" class="validate">
                   </div>
                 </td>
               </tr>

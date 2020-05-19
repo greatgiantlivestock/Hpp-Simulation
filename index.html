@@ -14,6 +14,7 @@
   <link rel="apple-touch-icon" href="/img/icons/icon-96x96.png">
   <meta name="apple-mobile-web-app-status-bar" content="#a4f8b6">
   <meta name="theme-color" content="#a4f8b6">
+  <script src="https://kit.fontawesome.com/2b457a8931.js" crossorigin="anonymous"></script>
 </head>
 <body class="grey lighten-4">
 
@@ -118,17 +119,25 @@
   </div>
 
   <div id="Contact" class="tabcontent">
-    <!-- adg -->
-    <div class="recipeshome2 container grey-text text-darken-1">
-      <div class="card-panel recipe white row" data-id="${id}">
-        <div class="recipe-details">
-          <div class="recipe-title">
-            <object data="/uploads/template.pdf" type="application/pdf" width="100%" height="100%">
-              <p>Alternative text - include a link <a href="/uploads/template.pdf">to the PDF!</a></p>
-            </object>
-          </div>
+    <div style="width:100%;height:100%;overflow-x: scroll;overflow-y: scroll;">
+      <body>
+        <div class="top-bar">
+            <button class="btn" id="prev-page">
+                <i class="fas fa-arrow-circle-left"></i>Prev Page 
+            </button>
+            <button class="btn" id="next-page">
+                Next Page<i class="fas fa-arrow-circle-right"></i> 
+            </button>
+            <span class="page-info">
+                Page <span id="page-num"></span> of <span id="page-count"></span>
+            </span>
         </div>
-      </div>
+
+        <canvas id="pdf-render"></canvas>
+
+        <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+        <script src="js/main.js"></script>
+      </body>
     </div>
   </div>
 <!-- 
