@@ -4,8 +4,8 @@ const recipes2 = document.querySelector('.recipeshome2');
 
 document.addEventListener('DOMContentLoaded', function() {
   // nav menu
-  const menus = document.querySelectorAll('.side-menu');
-  M.Sidenav.init(menus, {edge: 'right'});
+  // const menus = document.querySelectorAll('.side-menu');
+  // M.Sidenav.init(menus, {edge: 'right'});
   // add recipe form
   const forms = document.querySelectorAll('.side-form');
   M.Sidenav.init(forms, {edge: 'left'});
@@ -34,20 +34,21 @@ const renderRecipe = (data, id) => {
       <div id="id_nav" class="card-panel recipe white row" data-id="${id}">
         <div class="recipe-details">
             <div class="recipe-title">Total Cattle Cost Calculation</div>
+            <div class="recipe-ingredients">Simulasi untuk menghitung target BEP price sebagai dasar pantauan harga jual</div>
             <div></div>
             <form>
             <table>
               <tr style="border:none;">
-                <td style="width:65%">  
+                <td style="width:48%">  
                   <div class="recipe-ingredients">
                     <label for="title">Rate (Rp/USD)</label>
-                    <input id="rate1" onkeyup="cal_all()" step="any" type="number" value="${data.rate}" class="validate">
+                    <input id="rate1" placeholder="Rate sesuai market" onkeyup="cal_all()" step="any" type="number" value="${data.rate}" class="validate">
                   </div>
                 </td>
-                <td style="width:35%">
+                <td style="width:52%">
                   <div class="recipe-ingredients">
                     <label for="title">Purchase Price (USD/Kg)</label>
-                    <input id="purchase_price1" onkeyup="cal_all()" value="${data.purchase_price}" step="any" type="number" class="validate">
+                    <input id="purchase_price1" placeholder="Harga beli (USD)" onkeyup="cal_all()" value="${data.purchase_price}" step="any" type="number" class="validate">
                   </div>
                 </td>
               </tr>
@@ -55,7 +56,7 @@ const renderRecipe = (data, id) => {
                 <td colspan="2">  
                   <div class="recipe-ingredients">
                     <label for="title">Cattle Weight (Kg/Head)</label>
-                    <input id="cattle_weight1" onkeyup="cal_all()"  step="any" type="number" value="${data.cattle_weight}" class="validate">
+                    <input id="cattle_weight1" placeholder="Input berat awal import sapi" onkeyup="cal_all()"  step="any" type="number" value="${data.cattle_weight}" class="validate">
                   </div>
                 </td>
               </tr>
@@ -63,13 +64,13 @@ const renderRecipe = (data, id) => {
                 <td>
                   <div class="recipe-ingredients">
                     <label for="title">Purchase Price all (Rp/Kg)</label>
-                    <input id="purchase_price_all1" onkeyup="cal_all()" disabled style="background-color:#f2f2f2;"  step="any" type="number" value="${data.purchase_price_all}" class="validate">
+                    <input id="purchase_price_all1" onkeyup="cal_all()" disabled style="background-color:#3d9ceb;"  step="any" type="number" value="${data.purchase_price_all}" class="validate">
                   </div>
                 </td>
                 <td>
                   <div class="recipe-ingredients">
                     <label for="title">Cattle sold weight (Kg/Head)</label>
-                    <input id="cattle_sold_weight1" onkeyup="cal_all()" disabled style="background-color:#f2f2f2;"  step="any" type="number" value="${data.cattle_sold_weight}" class="validate">
+                    <input id="cattle_sold_weight1" onkeyup="cal_all()" disabled style="background-color:#3d9ceb;"  step="any" type="number" value="${data.cattle_sold_weight}" class="validate">
                   </div>
                 </td>
               </tr>
@@ -77,21 +78,21 @@ const renderRecipe = (data, id) => {
                 <td>
                   <div class="recipe-ingredients">
                     <label for="title">Assumption DoF (Days)</label>
-                    <input id="dof1"  step="any" type="number" onkeyup="cal_all()" value="${data.dof}" class="validate">
+                    <input id="dof1" placeholder="Hari proyeksi DOF" step="any" type="number" onkeyup="cal_all()" value="${data.dof}" class="validate">
                   </div>
                 </td>
                 <td>
                   <div class="recipe-ingredients">
                     <label for="title">Assumption ADG (Kg/Days)</label>
-                    <input id="adg1"  step="any" type="number" onkeyup="cal_all()" value="${data.adg}" class="validate">
+                    <input id="adg1" placeholder="Target ADG" step="any" type="number" onkeyup="cal_all()" value="${data.adg}" class="validate">
                   </div>
                 </td>
               </tr>
               <tr style="border:none;">
                 <td colspan="2">
                   <div class="recipe-ingredients">
-                    <label for="title">Cattle Purchase (Rp/Kg)</label>
-                    <input id="cattle_purchase1" onkeyup="cal_all()" disabled style="background-color:#f2f2f2;"  step="any" type="number" value="${data.cattle_purchase}" class="validate">
+                    <label for="title">Cattle Finish Good (Rp/Kg)</label>
+                    <input id="cattle_purchase1" onkeyup="cal_all()" disabled style="background-color:#3d9ceb;"  step="any" type="number" value="${data.cattle_purchase}" class="validate">
                   </div>
                 </td>
               </tr>
@@ -99,13 +100,13 @@ const renderRecipe = (data, id) => {
                 <td>
                   <div class="recipe-ingredients">
                     <label for="title">Direct Cost (Rp/Kg)</label>
-                    <input id="direct_cost1"  step="any" type="number" disabled style="background-color:#f2f2f2;" value="${data.direct_cost}" class="validate">
+                    <input id="direct_cost1"  step="any" type="number" disabled style="background-color:#3d9ceb;" value="${data.direct_cost}" class="validate">
                   </div>
                 </td>
                 <td>
                   <div class="recipe-ingredients">
                     <label for="title">OH + interest (Rp/Kg)</label>
-                    <input id="oh_interest1"  step="any" type="number" disabled style="background-color:#f2f2f2;" value="${data.oh_interest}" class="validate">
+                    <input id="oh_interest1"  step="any" type="number" disabled style="background-color:#3d9ceb;" value="${data.oh_interest}" class="validate">
                   </div>
                 </td>
               </tr>
@@ -388,8 +389,6 @@ function cal_all(){
   var val_purchase_price = Number(document.getElementById('purchase_price1').value);
   // var val_direct_cost = Number(document.getElementById('direct_cost1').value);
   // var val_oh_interest = Number(document.getElementById('oh_interest1').value);
-  var val_sttot = Number(document.getElementById('sttot').textContent);
-  var val_stopex_int = Number(document.getElementById('stopex_int').textContent);
   var val_cattle_sold_weight = val_cattle_weight+(val_dof*val_adg);
   var val_purchase_price_all = (val_rate*val_purchase_price*1.05)+700;
   var val_cattle_purchase = val_purchase_price_all*val_cattle_weight/val_cattle_sold_weight;
@@ -413,6 +412,8 @@ function cal_all(){
   document.getElementById('stopex_int').innerHTML = Math.ceil(stopex_int);
   document.getElementById('stopex_int1').innerHTML = Math.ceil(stopex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
+  var val_sttot = Number(document.getElementById('sttot').textContent);
+  var val_stopex_int = Number(document.getElementById('stopex_int').textContent);
   document.getElementById('purchase_price_all1').value = Math.ceil(val_purchase_price_all);
   document.getElementById('cattle_sold_weight1').value = Math.ceil(val_cattle_sold_weight);
   document.getElementById('cattle_purchase1').value = Math.ceil(val_cattle_purchase);
@@ -429,20 +430,21 @@ const renderRecipe1 = (data, id) => {
       <div id="id_nav" class="card-panel recipe white row" data-id="${id}">
         <div class="recipe-details">
             <div class="recipe-title">Purchase Price Calculation</div>
+            <div class="recipe-ingredients">Simulasi untuk menghitung target harga USD/Kg pembelian import sapi dengan asumsi BEP price</div>
             <div></div>
             <form>
             <table>
               <tr style="border:none;">
-                <td style="width:65%">  
+                <td style="width:48%">  
                   <div class="recipe-ingredients">
                     <label for="title">Rate (Rp/USD)</label>
-                    <input id="rate12" onkeyup="cal_all2()"  step="any" type="number" value="${data.rate}" class="validate">
+                    <input id="rate12" onkeyup="cal_all2()" placeholder="Rate sesuai market" step="any" type="number" value="${data.rate}" class="validate">
                   </div>
                 </td>
-                <td style="width:35%">
+                <td style="width:52%">
                   <div class="recipe-ingredients">
                     <label for="title">Cattle Weight (Kg/Head)</label>
-                    <input id="cattle_weight12" onkeyup="cal_all2()"  step="any" type="number" value="${data.cattle_weight}" class="validate">
+                    <input id="cattle_weight12" onkeyup="cal_all2()" placeholder="Berat awal import sapi" step="any" type="number" value="${data.cattle_weight}" class="validate">
                   </div>  
                 </td>
               </tr>
@@ -450,7 +452,7 @@ const renderRecipe1 = (data, id) => {
                 <td colspan="2">  
                   <div class="recipe-ingredients-result">
                     <label style="font-size: 13px;">Total Cattle Cost (Rp/Kg)</label>
-                    <input id="cattle_cost12"  step="any" type="number" value="${data.cattle_cost}" class="validate">
+                    <input id="cattle_cost12" onkeyup="cal_all2()" placeholder="Target BEP price sebelum target margin" step="any" type="number" value="${data.cattle_cost}" class="validate">
                   </div> 
                 </td>
               </tr>
@@ -458,13 +460,13 @@ const renderRecipe1 = (data, id) => {
                 <td>
                   <div class="recipe-ingredients">
                     <label for="title">Purchase Price all (Rp/Kg)</label>
-                    <input id="purchase_price_all12" onkeyup="cal_all2()" disabled style="background-color:#f2f2f2;"  step="any" type="number" value="${data.purchase_price_all}" class="validate">
+                    <input id="purchase_price_all12" onkeyup="cal_all2()" disabled style="background-color:#3d9ceb;"  step="any" type="number" value="${data.purchase_price_all}" class="validate">
                   </div>
                 </td>
                 <td>
                   <div class="recipe-ingredients">
                     <label for="title">Cattle sold weight (Kg/Head)</label>
-                    <input id="cattle_sold_weight12" onkeyup="cal_all2()"  step="any" type="number" value="${data.cattle_sold_weight}" class="validate">
+                    <input id="cattle_sold_weight12" onkeyup="cal_all2()" placeholder="Berat jual sapi" step="any" type="number" value="${data.cattle_sold_weight}" class="validate">
                   </div>
                 </td>
               </tr>
@@ -472,21 +474,21 @@ const renderRecipe1 = (data, id) => {
                 <td>
                   <div class="recipe-ingredients">
                     <label for="title">Assumption DoF (Days)</label>
-                    <input disabled style="background-color:#f2f2f2;" id="dof12"  step="any" type="number" onkeyup="cal_all2()" value="${data.dof}" class="validate">
+                    <input disabled style="background-color:#3d9ceb;" id="dof12"  step="any" type="number" onkeyup="cal_all2()" value="${data.dof}" class="validate">
                   </div>
                 </td>
                 <td>
                   <div class="recipe-ingredients">
                     <label for="title">Assumption ADG (Kg/Day)</label>
-                    <input id="adg12"  step="any" type="number" onkeyup="cal_all2()" value="${data.adg}" class="validate">
+                    <input id="adg12" placeholder="Target ADG" step="any" type="number" onkeyup="cal_all2()" value="${data.adg}" class="validate">
                   </div>
                 </td>
               </tr>
               <tr style="border:none;">
                 <td colspan="2">
                   <div class="recipe-ingredients">
-                    <label for="title">Cattle Purchase (Rp/Kg)</label>
-                    <input id="cattle_purchase12" onkeyup="cal_all2()" disabled style="background-color:#f2f2f2;"  step="any" type="number" value="${data.cattle_purchase}" class="validate">
+                    <label for="title">Cattle Finish Good (Rp/Kg)</label>
+                    <input id="cattle_purchase12" onkeyup="cal_all2()" disabled style="background-color:#3d9ceb;"  step="any" type="number" value="${data.cattle_purchase}" class="validate">
                   </div>
                 </td>
               </tr>
@@ -494,13 +496,13 @@ const renderRecipe1 = (data, id) => {
                 <td>
                   <div class="recipe-ingredients">
                     <label for="title">Direct Cost (Rp/Kg)</label>
-                    <input id="direct_cost12"  step="any" type="number" disabled style="background-color:#f2f2f2;" value="${data.direct_cost}" class="validate">
+                    <input id="direct_cost12" onkeyup="cal_all2()" step="any" type="number" disabled style="background-color:#3d9ceb;" value="${data.direct_cost}" class="validate">
                   </div>
                 </td>
                 <td>
                   <div class="recipe-ingredients">
                     <label for="title">OH + interest (Rp/Kg)</label>
-                    <input id="oh_interest12"  step="any" type="number" disabled style="background-color:#f2f2f2;" value="${data.oh_interest}" class="validate">
+                    <input id="oh_interest12" onkeyup="cal_all2()" step="any" type="number" disabled style="background-color:#3d9ceb;" value="${data.oh_interest}" class="validate">
                   </div>
                 </td>
               </tr>
