@@ -786,7 +786,7 @@ const renderRecipe2 = (data, id) => {
       <div id="id_nav" class="card-panel recipe white row" data-id="${id}">
         <div class="recipe-details">
             <div class="recipe-title">Total Cattle Cost Calculation</div>
-            <div class="recipe-ingredients">Simulasi untuk menghitung target BEP price sebagai dasar pantauan harga jual</div>
+            <div class="recipe-ingredients">Simulasi untuk menghitung target BEP price sebagai dasar pantauan harga jual (exclude BM 5%)</div>
             <div></div>
             <form>
             <table>
