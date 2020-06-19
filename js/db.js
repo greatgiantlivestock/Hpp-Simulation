@@ -50,10 +50,10 @@ db.collection('recipes').onSnapshot(snapshot => {
         // removeRecipe(change.doc.id);
         updateRenderRecipe1(change.doc.data(), change.doc.id);
       }
-      // var c = document.querySelector('.recipeshome2');
-      // if(c){
-      //   updateRenderRecipe2(change.doc.data(), change.doc.id);
-      // }
+      var c = document.querySelector('.recipeshome2');
+      if(c){
+        updateRenderRecipe2(change.doc.data(), change.doc.id);
+      }
       // window.location.href = "/pages/about.html";
       // updateRecipe(change.doc.data(), change.doc.id);
     }
