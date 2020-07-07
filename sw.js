@@ -1,17 +1,17 @@
 const staticCacheName = 'site-static-v12';
 const dynamicCacheName = 'site-dynamic-v13';
 const assets = [
-  '/',
-  '/index.html',
-  '/js/app.js',
-  '/js/ui_home.js',
-  '/js/materialize.min.js',
-  '/css/styles.css',
-  '/css/materialize.min.css',
-  '/img/dish.png',
-  'https://fonts.googleapis.com/icon?family=Material+Icons',
-  'https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2',
-  '/pages/fallback.html'
+  // '/',
+  // '/index.html',
+  // '/js/app.js',
+  // '/js/ui_home.js',
+  // '/js/materialize.min.js',
+  // '/css/styles.css',
+  // '/css/materialize.min.css',
+  // '/img/dish.png',
+  // 'https://fonts.googleapis.com/icon?family=Material+Icons',
+  // 'https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2',
+  // '/pages/fallback.html'
 ];
 
 // cache size limit function
