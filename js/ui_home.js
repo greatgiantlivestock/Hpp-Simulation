@@ -166,7 +166,7 @@ const renderRecipe = (data, id) => {
                     </div>
                   </td>
                 </tr>
-                <tr style="border:none;" class="recipe-ingredients-result1"> 
+                <tr class="recipe-ingredients-result1"> 
                   <td>Labour Cost</td>
                   <td>
                     <div style="float:right;">
@@ -181,42 +181,12 @@ const renderRecipe = (data, id) => {
                   </div>
                   </td>
                 </tr>
-                <tr class="recipe-ingredients-result1"> 
-                  <td>Foh</td>
-                  <td>
-                  <div style="float:right;">
-                    <label id="foh" style="display:none;font-size: 13px;"></label>
-                    <label id="foh11" style="font-size: 13px;"></label>
-                  </div>
-                  </td>
-                  <td>
-                    <div style="float:right;">
-                      <label id="stfoh" onchange="cal_all()" style="display:none;font-size: 13px;font-weight: bold;"></label>
-                      <label id="stfoh1"  style="font-size: 13px;font-weight: bold;"></label>
-                    </div>
-                  </td>
-                </tr>
                 <tr style="border:none;" class="recipe-ingredients-result1"> 
                   <td colspan="2">Total</td>
                   <td>
                     <div style="float:right;">
                       <label id="sttot" onchange="cal_all()" style="display:none;font-size: 13px;font-weight: bold;"></label>
                       <label id="sttot1"  style="font-size: 13px;font-weight: bold;"></label>
-                    </div>
-                  </td>
-                </tr>
-                <tr style="border:none;" class="recipe-ingredients-result1"> 
-                  <td>OPEX + Interest</td>
-                  <td>
-                    <div style="float:right;">
-                      <label id="opex_int" style="display:none;font-size: 13px;"></label>
-                      <label id="opex_int1" style="font-size: 13px;"></label>
-                    </div>
-                  </td>
-                  <td>
-                    <div style="float:right;">
-                      <label id="stopex_int" onchange="cal_all()" style="display:none;font-size: 13px;font-weight: bold;"></label>
-                      <label id="stopex_int1" right style="font-size: 13px;font-weight: bold;"></label>
                     </div>
                   </td>
                 </tr>
@@ -230,26 +200,26 @@ const renderRecipe = (data, id) => {
   var stfeed_cost = Number(data.feed_cost)*Number(document.getElementById('dof1').value);
   var stmed_cost = Number(data.med_cost)*Number(document.getElementById('dof1').value);
   var stlabour_cost = Number(data.labour_cost)*Number(document.getElementById('dof1').value);
-  var stfoh = Number(data.foh)*Number(document.getElementById('dof1').value);
-  var sttot = stfeed_cost+stmed_cost+stlabour_cost+stfoh;
-  var stopex_int = Number(data.opex_int)*Number(document.getElementById('dof1').value);
+  // var stfoh = Number(data.foh)*Number(document.getElementById('dof1').value);
+  var sttot = stfeed_cost+stmed_cost+stlabour_cost;
+  // var stopex_int = Number(data.opex_int)*Number(document.getElementById('dof1').value);
   document.getElementById('feed_cost').innerHTML = Math.ceil(data.feed_cost);
   document.getElementById('med_cost').innerHTML = Math.ceil(data.med_cost);
   document.getElementById('labour_cost').innerHTML = Math.ceil(data.labour_cost);
-  document.getElementById('foh').innerHTML = Math.ceil(data.foh);
-  document.getElementById('opex_int').innerHTML = Math.ceil(data.opex_int);
+  // document.getElementById('foh').innerHTML = Math.ceil(data.foh);
+  // document.getElementById('opex_int').innerHTML = Math.ceil(data.opex_int);
   document.getElementById('feed_cost1').innerHTML = Math.ceil(data.feed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   document.getElementById('med_cost1').innerHTML = Math.ceil(data.med_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   document.getElementById('labour_cost1').innerHTML = Math.ceil(data.labour_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('foh11').innerHTML = Math.ceil(data.foh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('opex_int1').innerHTML = Math.ceil(data.opex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  // document.getElementById('foh11').innerHTML = Math.ceil(data.foh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  // document.getElementById('opex_int1').innerHTML = Math.ceil(data.opex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   document.getElementById('btn_update').value = id;
 
   document.getElementById('feed1').value = data.feed_cost;
   document.getElementById('med1').value = data.med_cost;
   document.getElementById('labour1').value = data.labour_cost;
-  document.getElementById('foh1').value = data.foh;
-  document.getElementById('opex1').value = data.opex_int;
+  // document.getElementById('foh1').value = data.foh;
+  // document.getElementById('opex1').value = data.opex_int;
 
   document.getElementById('stfeed_cost').innerHTML = Math.ceil(stfeed_cost);
   document.getElementById('stfeed_cost1').innerHTML = Math.ceil(stfeed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -257,12 +227,12 @@ const renderRecipe = (data, id) => {
   document.getElementById('stmed_cost1').innerHTML = Math.ceil(stmed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   document.getElementById('stlabour_cost').innerHTML = Math.ceil(stlabour_cost);
   document.getElementById('stlabour_cost1').innerHTML = Math.ceil(stlabour_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('stfoh').innerHTML = Math.ceil(stfoh);
-  document.getElementById('stfoh1').innerHTML = Math.ceil(stfoh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  // document.getElementById('stfoh').innerHTML = Math.ceil(stfoh);
+  // document.getElementById('stfoh1').innerHTML = Math.ceil(stfoh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   document.getElementById('sttot').innerHTML = Math.ceil(sttot);
   document.getElementById('sttot1').innerHTML = Math.ceil(sttot).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('stopex_int').innerHTML = Math.ceil(stopex_int);
-  document.getElementById('stopex_int1').innerHTML = Math.ceil(stopex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  // document.getElementById('stopex_int').innerHTML = Math.ceil(stopex_int);
+  // document.getElementById('stopex_int1').innerHTML = Math.ceil(stopex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
   // update a recipe
   const updatreCalContainer = document.querySelector('.recipeshome');
@@ -312,20 +282,20 @@ const updateRenderRecipe = (data, id) => {
   document.getElementById('feed_cost').innerHTML = Math.ceil(data.feed_cost);
   document.getElementById('med_cost').innerHTML = Math.ceil(data.med_cost);
   document.getElementById('labour_cost').innerHTML = Math.ceil(data.labour_cost);
-  document.getElementById('foh').innerHTML = Math.ceil(data.foh);
-  document.getElementById('opex_int').innerHTML = Math.ceil(data.opex_int);
+  // document.getElementById('foh').innerHTML = Math.ceil(data.foh);
+  // document.getElementById('opex_int').innerHTML = Math.ceil(data.opex_int);
   document.getElementById('feed_cost1').innerHTML = Math.ceil(data.feed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   document.getElementById('med_cost1').innerHTML = Math.ceil(data.med_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   document.getElementById('labour_cost1').innerHTML = Math.ceil(data.labour_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('foh11').innerHTML = Math.ceil(data.foh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('opex_int1').innerHTML = Math.ceil(data.opex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  // document.getElementById('foh11').innerHTML = Math.ceil(data.foh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  // document.getElementById('opex_int1').innerHTML = Math.ceil(data.opex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
   var stfeed_cost = Number(data.feed_cost)*Number(document.getElementById('dof1').value);
   var stmed_cost = Number(data.med_cost)*Number(document.getElementById('dof1').value);
   var stlabour_cost = Number(data.labour_cost)*Number(document.getElementById('dof1').value);
-  var stfoh = Number(data.foh)*Number(document.getElementById('dof1').value);
-  var sttot = stfeed_cost+stmed_cost+stlabour_cost+stfoh;
-  var stopex_int = Number(data.opex_int)*Number(document.getElementById('dof1').value);
+  // var stfoh = Number(data.foh)*Number(document.getElementById('dof1').value);
+  var sttot = stfeed_cost+stmed_cost+stlabour_cost;
+  // var stopex_int = Number(data.opex_int)*Number(document.getElementById('dof1').value);
 
   document.getElementById('stfeed_cost').innerHTML = Math.ceil(stfeed_cost);
   document.getElementById('stfeed_cost1').innerHTML = Math.ceil(stfeed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -333,12 +303,12 @@ const updateRenderRecipe = (data, id) => {
   document.getElementById('stmed_cost1').innerHTML = Math.ceil(stmed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   document.getElementById('stlabour_cost').innerHTML = Math.ceil(stlabour_cost);
   document.getElementById('stlabour_cost1').innerHTML = Math.ceil(stlabour_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('stfoh').innerHTML = Math.ceil(stfoh);
-  document.getElementById('stfoh1').innerHTML = Math.ceil(stfoh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  // document.getElementById('stfoh').innerHTML = Math.ceil(stfoh);
+  // document.getElementById('stfoh1').innerHTML = Math.ceil(stfoh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   document.getElementById('sttot').innerHTML = Math.ceil(sttot);
   document.getElementById('sttot1').innerHTML = Math.ceil(sttot).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('stopex_int').innerHTML = Math.ceil(stopex_int);
-  document.getElementById('stopex_int1').innerHTML = Math.ceil(stopex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  // document.getElementById('stopex_int').innerHTML = Math.ceil(stopex_int);
+  // document.getElementById('stopex_int1').innerHTML = Math.ceil(stopex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   var val_dof = Number(document.getElementById('dof1').value);
   var val_cattle_weight = Number(document.getElementById('cattle_weight1').value);
   var val_adg = Number(document.getElementById('adg1').value);
@@ -375,7 +345,7 @@ const updateRenderRecipe = (data, id) => {
   // var val_sttot = Number(document.getElementById('sttot').textContent);
   // var val_stopex_int = Number(document.getElementById('stopex_int').textContent);
   document.getElementById('direct_cost1').value = Math.ceil(sttot/val_cattle_sold_weight);
-  document.getElementById('oh_interest1').value = Math.ceil(stopex_int/val_cattle_sold_weight);
+  document.getElementById('oh_interest1').value = Math.ceil(val_cattle_sold_weight);
   // var val_cattle_purchase1 = Number(document.getElementById('cattle_purchase1').value);
   // var val_tot_cattle_cost = val_cattle_purchase+val_direct_cost+val_oh_interest;
   document.getElementById('cattle_cost1').value = "";
@@ -397,29 +367,29 @@ function cal_all(){
   var stfeed_cost = Number(document.getElementById('feed_cost').textContent)*Number(document.getElementById('dof1').value);
   var stmed_cost = Number(document.getElementById('med_cost').textContent)*Number(document.getElementById('dof1').value);
   var stlabour_cost = Number(document.getElementById('labour_cost').textContent)*Number(document.getElementById('dof1').value);
-  var stfoh = Number(document.getElementById('foh').textContent)*Number(document.getElementById('dof1').value);
-  var sttot = stfeed_cost+stmed_cost+stlabour_cost+stfoh;
-  var stopex_int = Number(document.getElementById('opex_int').textContent)*Number(document.getElementById('dof1').value);
+  // var stfoh = Number(document.getElementById('foh').textContent)*Number(document.getElementById('dof1').value);
+  var sttot = stfeed_cost+stmed_cost+stlabour_cost;
+  // var stopex_int = Number(document.getElementById('opex_int').textContent)*Number(document.getElementById('dof1').value);
   document.getElementById('stfeed_cost').innerHTML = Math.ceil(stfeed_cost);
   document.getElementById('stfeed_cost1').innerHTML = Math.ceil(stfeed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   document.getElementById('stmed_cost').innerHTML = Math.ceil(stmed_cost);
   document.getElementById('stmed_cost1').innerHTML = Math.ceil(stmed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   document.getElementById('stlabour_cost').innerHTML = Math.ceil(stlabour_cost);
   document.getElementById('stlabour_cost1').innerHTML = Math.ceil(stlabour_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('stfoh').innerHTML = Math.ceil(stfoh);
-  document.getElementById('stfoh1').innerHTML = Math.ceil(stfoh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  // document.getElementById('stfoh').innerHTML = Math.ceil(stfoh);
+  // document.getElementById('stfoh1').innerHTML = Math.ceil(stfoh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   document.getElementById('sttot').innerHTML = Math.ceil(sttot);
   document.getElementById('sttot1').innerHTML = Math.ceil(sttot).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('stopex_int').innerHTML = Math.ceil(stopex_int);
-  document.getElementById('stopex_int1').innerHTML = Math.ceil(stopex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  // document.getElementById('stopex_int').innerHTML = Math.ceil(stopex_int);
+  // document.getElementById('stopex_int1').innerHTML = Math.ceil(stopex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
   var val_sttot = Number(document.getElementById('sttot').textContent);
-  var val_stopex_int = Number(document.getElementById('stopex_int').textContent);
+  // var val_stopex_int = Number(document.getElementById('stopex_int').textContent);
   document.getElementById('purchase_price_all1').value = Math.ceil(val_purchase_price_all);
   document.getElementById('cattle_sold_weight1').value = Math.ceil(val_cattle_sold_weight);
   document.getElementById('cattle_purchase1').value = Math.ceil(val_cattle_purchase);
   document.getElementById('direct_cost1').value = Math.ceil(val_sttot/val_cattle_sold_weight);
-  document.getElementById('oh_interest1').value = Math.ceil(val_stopex_int/val_cattle_sold_weight);
+  document.getElementById('oh_interest1').value = Math.ceil(val_cattle_sold_weight);
   // var val_cattle_purchase1 = Number(document.getElementById('cattle_purchase1').value);
   // var val_tot_cattle_cost = val_cattle_purchase1+val_direct_cost+val_oh_interest;
   document.getElementById('cattle_cost1').value = "";
