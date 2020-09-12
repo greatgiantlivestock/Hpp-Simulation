@@ -317,7 +317,7 @@ const updateRenderRecipe = (data, id) => {
   // var val_direct_cost = Number(data.direct_cost);
   // var val_oh_interest = Number(data.oh_interest);
   var val_cattle_sold_weight = val_cattle_weight+(val_dof*val_adg);
-  var val_purchase_price_all = (val_rate*val_purchase_price*1.05)+700;
+  var val_purchase_price_all = (val_rate*val_purchase_price)+700;
   var val_cattle_purchase = val_purchase_price_all*val_cattle_weight/val_cattle_sold_weight;
   
   // var stfeed_cost = Number(data.feed_cost)*Number(document.getElementById('dof1').value);
@@ -361,7 +361,7 @@ function cal_all(){
   // var val_direct_cost = Number(document.getElementById('direct_cost1').value);
   // var val_oh_interest = Number(document.getElementById('oh_interest1').value);
   var val_cattle_sold_weight = val_cattle_weight+(val_dof*val_adg);
-  var val_purchase_price_all = (val_rate*val_purchase_price*1.05)+700;
+  var val_purchase_price_all = (val_rate*val_purchase_price)+700;
   var val_cattle_purchase = val_purchase_price_all*val_cattle_weight/val_cattle_sold_weight;
   
   var stfeed_cost = Number(document.getElementById('feed_cost').textContent)*Number(document.getElementById('dof1').value);
