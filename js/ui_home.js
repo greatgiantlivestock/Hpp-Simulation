@@ -105,8 +105,8 @@ const renderRecipe = (data, id) => {
                 </td>
                 <td>
                   <div class="recipe-ingredients">
-                    <label for="title">OH + interest (Rp/Kg)</label>
-                    <input id="oh_interest1"  step="any" type="number" disabled style="background-color:#3d9ceb;" value="${data.oh_interest}" class="validate">
+                    <label style="display:none;" for="title">OH + interest (Rp/Kg)</label>
+                    <input id="oh_interest1"  step="any" type="number" disabled style="display:none;background-color:#3d9ceb;" value="${data.oh_interest}" class="validate">
                   </div>
                 </td>
               </tr>
@@ -345,7 +345,7 @@ const updateRenderRecipe = (data, id) => {
   // var val_sttot = Number(document.getElementById('sttot').textContent);
   // var val_stopex_int = Number(document.getElementById('stopex_int').textContent);
   document.getElementById('direct_cost1').value = Math.ceil(sttot/val_cattle_sold_weight);
-  document.getElementById('oh_interest1').value = Math.ceil(val_cattle_sold_weight);
+  document.getElementById('oh_interest1').value = Math.ceil(0/val_cattle_sold_weight);
   // var val_cattle_purchase1 = Number(document.getElementById('cattle_purchase1').value);
   // var val_tot_cattle_cost = val_cattle_purchase+val_direct_cost+val_oh_interest;
   document.getElementById('cattle_cost1').value = "";
@@ -389,7 +389,7 @@ function cal_all(){
   document.getElementById('cattle_sold_weight1').value = Math.ceil(val_cattle_sold_weight);
   document.getElementById('cattle_purchase1').value = Math.ceil(val_cattle_purchase);
   document.getElementById('direct_cost1').value = Math.ceil(val_sttot/val_cattle_sold_weight);
-  document.getElementById('oh_interest1').value = Math.ceil(val_cattle_sold_weight);
+  document.getElementById('oh_interest1').value = Math.ceil(0/val_cattle_sold_weight);
   // var val_cattle_purchase1 = Number(document.getElementById('cattle_purchase1').value);
   // var val_tot_cattle_cost = val_cattle_purchase1+val_direct_cost+val_oh_interest;
   document.getElementById('cattle_cost1').value = "";
