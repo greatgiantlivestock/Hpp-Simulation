@@ -40,6 +40,11 @@ nav .sidenav-trigger{
 .recipes2{
   margin-top: 0px;
 }
+
+/* recipe styles */
+.recipes3{
+  margin-top: 0px;
+}
 /* rubah tampilan grid listnya disini */
 .card-panel.recipe{
   border-radius: 8px;
@@ -116,7 +121,7 @@ body, html {
   cursor: pointer;
   padding: 10px 5px;
   font-size: 16px;
-  width: 33.3%;
+  width: 25%;
   height: 50px;
 }
 

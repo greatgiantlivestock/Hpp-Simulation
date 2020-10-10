@@ -1,6 +1,7 @@
 const recipes = document.querySelector('.recipeshome');
 const recipes1 = document.querySelector('.recipeshome1');
 const recipes2 = document.querySelector('.recipeshome2');
+const recipes3 = document.querySelector('.recipeshome3');
 
 document.addEventListener('DOMContentLoaded', function() {
   // nav menu
@@ -396,12 +397,12 @@ function cal_all(){
 }
 
 // render recipe data
-const renderRecipe1 = (data, id) => {
+const renderRecipe3 = (data, id) => {
   const html = `
       <div id="id_nav" class="card-panel recipe white row" data-id="${id}">
         <div class="recipe-details">
-            <div class="recipe-title">Purchase Price Calculation</div>
-            <div class="recipe-ingredients">Simulasi untuk menghitung target harga USD/Kg pembelian import sapi dengan asumsi BEP price</div>
+            <div class="recipe-title">Total Cattle Cost Calculation</div>
+            <div class="recipe-ingredients">Simulasi untuk menghitung target BEP price sebagai dasar pantauan harga jual (exclude BM 5%)</div>
             <div></div>
             <form>
             <table>
@@ -409,35 +410,35 @@ const renderRecipe1 = (data, id) => {
                 <td style="width:48%">  
                   <div class="recipe-ingredients">
                     <label for="title">Rate (Rp/USD)</label>
-                    <input id="rate12" onkeyup="cal_all2()" placeholder="Rate sesuai market" step="any" type="number" value="${data.rate}" class="validate">
+                    <input id="rate14" placeholder="Rate sesuai market" onkeyup="cal_all4()" step="any" type="number" value="${data.rate}" class="validate">
                   </div>
                 </td>
                 <td style="width:52%">
                   <div class="recipe-ingredients">
-                    <label for="title">Cattle Weight (Kg/Head)</label>
-                    <input id="cattle_weight12" onkeyup="cal_all2()" placeholder="Berat awal import sapi" step="any" type="number" value="${data.cattle_weight}" class="validate">
-                  </div>  
+                    <label for="title">Purchase Price (USD/Kg)</label>
+                    <input id="purchase_price14" placeholder="Harga beli (USD)" onkeyup="cal_all4()" value="${data.purchase_price}" step="any" type="number" class="validate">
+                  </div>
                 </td>
               </tr>
               <tr style="border:none;">
                 <td colspan="2">  
-                  <div class="recipe-ingredients-result">
-                    <label style="font-size: 13px;">Total Cattle Cost (Rp/Kg)</label>
-                    <input id="cattle_cost12" onkeyup="cal_all2()" placeholder="Target BEP price sebelum target margin" step="any" type="number" value="${data.cattle_cost}" class="validate">
-                  </div> 
+                  <div class="recipe-ingredients">
+                    <label for="title">Cattle Weight (Kg/Head)</label>
+                    <input id="cattle_weight14" placeholder="Input berat awal import sapi" onkeyup="cal_all4()"  step="any" type="number" value="${data.cattle_weight}" class="validate">
+                  </div>
                 </td>
               </tr>
               <tr style="border:none;">
                 <td>
                   <div class="recipe-ingredients">
                     <label for="title">Purchase Price all (Rp/Kg)</label>
-                    <input id="purchase_price_all12" onkeyup="cal_all2()" disabled style="background-color:#3d9ceb;"  step="any" type="number" value="${data.purchase_price_all}" class="validate">
+                    <input id="purchase_price_all14" onkeyup="cal_all4()" disabled style="background-color:#3d9ceb;"  step="any" type="number" value="${data.purchase_price_all}" class="validate">
                   </div>
                 </td>
                 <td>
                   <div class="recipe-ingredients">
                     <label for="title">Cattle sold weight (Kg/Head)</label>
-                    <input id="cattle_sold_weight12" onkeyup="cal_all2()" placeholder="Berat jual sapi" step="any" type="number" value="${data.cattle_sold_weight}" class="validate">
+                    <input id="cattle_sold_weight14" onkeyup="cal_all4()" disabled style="background-color:#3d9ceb;"  step="any" type="number" value="${data.cattle_sold_weight}" class="validate">
                   </div>
                 </td>
               </tr>
@@ -445,13 +446,13 @@ const renderRecipe1 = (data, id) => {
                 <td>
                   <div class="recipe-ingredients">
                     <label for="title">Assumption DoF (Days)</label>
-                    <input disabled style="background-color:#3d9ceb;" id="dof12"  step="any" type="number" onkeyup="cal_all2()" value="${data.dof}" class="validate">
+                    <input id="dof14" placeholder="Hari proyeksi DOF" step="any" type="number" onkeyup="cal_all4()" value="${data.dof}" class="validate">
                   </div>
                 </td>
                 <td>
                   <div class="recipe-ingredients">
-                    <label for="title">Assumption ADG (Kg/Day)</label>
-                    <input id="adg12" placeholder="Target ADG" step="any" type="number" onkeyup="cal_all2()" value="${data.adg}" class="validate">
+                    <label for="title">Assumption ADG (Kg/Days)</label>
+                    <input id="adg14" placeholder="Target ADG" step="any" type="number" onkeyup="cal_all4()" value="${data.adg}" class="validate">
                   </div>
                 </td>
               </tr>
@@ -459,7 +460,7 @@ const renderRecipe1 = (data, id) => {
                 <td colspan="2">
                   <div class="recipe-ingredients">
                     <label for="title">Cattle Finish Good (Rp/Kg)</label>
-                    <input id="cattle_purchase12" onkeyup="cal_all2()" disabled style="background-color:#3d9ceb;"  step="any" type="number" value="${data.cattle_purchase}" class="validate">
+                    <input id="cattle_purchase14" onkeyup="cal_all4()" disabled style="background-color:#3d9ceb;"  step="any" type="number" value="${data.cattle_purchase}" class="validate">
                   </div>
                 </td>
               </tr>
@@ -467,27 +468,27 @@ const renderRecipe1 = (data, id) => {
                 <td>
                   <div class="recipe-ingredients">
                     <label for="title">Direct Cost (Rp/Kg)</label>
-                    <input id="direct_cost12" onkeyup="cal_all2()" step="any" type="number" disabled style="background-color:#3d9ceb;" value="${data.direct_cost}" class="validate">
+                    <input id="direct_cost14"  step="any" type="number" disabled style="background-color:#3d9ceb;" value="${data.direct_cost}" class="validate">
                   </div>
                 </td>
                 <td>
                   <div class="recipe-ingredients">
                     <label for="title">OH + interest (Rp/Kg)</label>
-                    <input id="oh_interest12" onkeyup="cal_all2()" step="any" type="number" disabled style="background-color:#3d9ceb;" value="${data.oh_interest}" class="validate">
+                    <input id="oh_interest14"  step="any" type="number" disabled style="background-color:#3d9ceb;" value="${data.oh_interest}" class="validate">
                   </div>
                 </td>
               </tr>
               <tr style="border:none;">
                 <td colspan="2">
-                  <div class="recipe-ingredients">
-                    <label for="title" style="font-weight: bold;">Purchase Price (USD/Kg)</label>
-                    <input disabled style="background-color: #d8f2c7;font-weight: bold;" id="purchase_price12" onkeyup="cal_all2()" value=""  step="any" type="number" class="validate">
-                  </div>
+                  <div class="recipe-ingredients-result">
+                    <label style="font-size: 13px;font-weight: bold;">Total Cattle Cost (Rp/Kg)</label>
+                    <input disabled style="background-color:#d8f2c7;font-weight: bold;" id="cattle_cost14"  step="any" type="number" value="" class="validate">
+                  </div> 
                 </td>
               </tr>
             <table>
             <div class="center">
-              <a style="border-radius:15px; margin-bottom:20px;" id="cal_btn2" class="btn-small btn-large update-btn" data-id="">
+              <a style="border-radius:15px; margin-bottom:20px;" id="cal_btn4" class="btn-small btn-large update-btn" data-id="${id}">
                 Calculate
               </a>
             </div>
@@ -507,14 +508,14 @@ const renderRecipe1 = (data, id) => {
                   <td>Feed Cost</td>
                   <td>
                     <div style="float:right;">
-                      <label id="feed_cost2" style="display:none;font-size: 13px;"></label>
-                      <label id="feed_cost12" style="font-size: 13px;"></label>
+                      <label id="feed_cost4" style="display:none;font-size: 13px;"></label>
+                      <label id="feed_cost14" style="font-size: 13px;"></label>
                     </div>  
                   </td>
                   <td>
                     <div style="float:right;">
-                      <label id="stfeed_cost2" onchange="cal_all2()" style="display:none;font-size: 13px;font-weight: bold;"></label>
-                      <label id="stfeed_cost12" style="font-size: 13px;font-weight: bold;"></label>
+                      <label id="stfeed_cost4" onchange="cal_all4()" style="display:none;font-size: 13px;font-weight: bold;"></label>
+                      <label id="stfeed_cost14" style="font-size: 13px;font-weight: bold;"></label>
                     </div>
                   </td>
                 </tr>
@@ -522,14 +523,14 @@ const renderRecipe1 = (data, id) => {
                   <td>Med Cost</td>
                   <td>
                     <div style="float:right;">
-                      <label id="med_cost2" style="display:none;font-size: 13px;"></label>
-                      <label id="med_cost12" style="font-size: 13px;"></label>
+                      <label id="med_cost4" style="display:none;font-size: 13px;"></label>
+                      <label id="med_cost14" style="font-size: 13px;"></label>
                     </div>
                   </td>
                   <td>
                     <div style="float:right;">
-                      <label id="stmed_cost2" onchange="cal_all2()" style="display:none;font-size: 13px;font-weight: bold;"></label>
-                      <label id="stmed_cost12"  style="font-size: 13px;font-weight: bold;"></label>
+                      <label id="stmed_cost4" onchange="cal_all4()" style="display:none;font-size: 13px;font-weight: bold;"></label>
+                      <label id="stmed_cost14"  style="font-size: 13px;font-weight: bold;"></label>
                     </div>
                   </td>
                 </tr>
@@ -537,14 +538,14 @@ const renderRecipe1 = (data, id) => {
                   <td>Labour Cost</td>
                   <td>
                     <div style="float:right;">
-                      <label id="labour_cost2" style="display:none;font-size: 13px;"></label>
-                      <label id="labour_cost12" style="font-size: 13px;"></label>
+                      <label id="labour_cost4" style="display:none;font-size: 13px;"></label>
+                      <label id="labour_cost14" style="font-size: 13px;"></label>
                     </div>
                   </td>
                   <td>
                   <div style="float:right;">
-                    <label id="stlabour_cost2" onchange="cal_all2()" style="display:none;font-size: 13px;font-weight: bold;"></label>
-                    <label id="stlabour_cost12"  style="font-size: 13px;font-weight: bold;"></label>
+                    <label id="stlabour_cost4" onchange="cal_all4()" style="display:none;font-size: 13px;font-weight: bold;"></label>
+                    <label id="stlabour_cost14"  style="font-size: 13px;font-weight: bold;"></label>
                   </div>
                   </td>
                 </tr>
@@ -552,14 +553,14 @@ const renderRecipe1 = (data, id) => {
                   <td>Foh</td>
                   <td>
                   <div style="float:right;">
-                    <label id="foh2" style="display:none;font-size: 13px;"></label>
-                    <label id="foh112" style="font-size: 13px;"></label>
+                    <label id="foh4" style="display:none;font-size: 13px;"></label>
+                    <label id="foh114" style="font-size: 13px;"></label>
                   </div>
                   </td>
                   <td>
                     <div style="float:right;">
-                      <label id="stfoh2" onchange="cal_all2()" style="display:none;font-size: 13px;font-weight: bold;"></label>
-                      <label id="stfoh12"  style="font-size: 13px;font-weight: bold;"></label>
+                      <label id="stfoh4" onchange="cal_all4()" style="display:none;font-size: 13px;font-weight: bold;"></label>
+                      <label id="stfoh14"  style="font-size: 13px;font-weight: bold;"></label>
                     </div>
                   </td>
                 </tr>
@@ -567,23 +568,8 @@ const renderRecipe1 = (data, id) => {
                   <td colspan="2">Total</td>
                   <td>
                     <div style="float:right;">
-                      <label id="sttot2" onchange="cal_all2()" style="display:none;font-size: 13px;font-weight: bold;"></label>
-                      <label id="sttot12"  style="font-size: 13px;font-weight: bold;"></label>
-                    </div>
-                  </td>
-                </tr>
-                <tr style="border:none;" class="recipe-ingredients-result1"> 
-                  <td>OPEX + Interest</td>
-                  <td>
-                    <div style="float:right;">
-                      <label id="opex_int2" style="display:none;font-size: 13px;"></label>
-                      <label id="opex_int12" style="font-size: 13px;"></label>
-                    </div>
-                  </td>
-                  <td>
-                    <div style="float:right;">
-                      <label id="stopex_int2" onchange="cal_all2()" style="display:none;font-size: 13px;font-weight: bold;"></label>
-                      <label id="stopex_int12" right style="font-size: 13px;font-weight: bold;"></label>
+                      <label id="sttot4" onchange="cal_all4()" style="display:none;font-size: 13px;font-weight: bold;"></label>
+                      <label id="sttot14"  style="font-size: 13px;font-weight: bold;"></label>
                     </div>
                   </td>
                 </tr>
@@ -592,163 +578,172 @@ const renderRecipe1 = (data, id) => {
         </div>
       </div>
   `;
-  recipes1.innerHTML += html;
+  recipes3.innerHTML += html;
 
-  var stfeed_cost = Number(data.feed_cost)*Number(document.getElementById('dof12').value);
-  var stmed_cost = Number(data.med_cost)*Number(document.getElementById('dof12').value);
-  var stlabour_cost = Number(data.labour_cost)*Number(document.getElementById('dof12').value);
-  var stfoh = Number(data.foh)*Number(document.getElementById('dof12').value);
+  var stfeed_cost = Number(data.feed_cost)*Number(document.getElementById('dof14').value);
+  var stmed_cost = Number(data.med_cost)*Number(document.getElementById('dof14').value);
+  var stlabour_cost = Number(data.labour_cost)*Number(document.getElementById('dof14').value);
+  var stfoh = Number(data.foh)*Number(document.getElementById('dof14').value);
   var sttot = stfeed_cost+stmed_cost+stlabour_cost+stfoh;
-  var stopex_int = Number(data.opex_int)*Number(document.getElementById('dof12').value);
-  document.getElementById('feed_cost2').innerHTML = Math.ceil(data.feed_cost);
-  document.getElementById('med_cost2').innerHTML = Math.ceil(data.med_cost);
-  document.getElementById('labour_cost2').innerHTML = Math.ceil(data.labour_cost);
-  document.getElementById('foh2').innerHTML = Math.ceil(data.foh);
-  document.getElementById('opex_int2').innerHTML = Math.ceil(data.opex_int);
-  document.getElementById('feed_cost12').innerHTML = Math.ceil(data.feed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('med_cost12').innerHTML = Math.ceil(data.med_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('labour_cost12').innerHTML = Math.ceil(data.labour_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('foh112').innerHTML = Math.ceil(data.foh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('opex_int12').innerHTML = Math.ceil(data.opex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  // var stopex_int = Number(data.opex_int)*Number(document.getElementById('dof14').value);
+  document.getElementById('feed_cost4').innerHTML = Math.ceil(data.feed_cost);
+  document.getElementById('med_cost4').innerHTML = Math.ceil(data.med_cost);
+  document.getElementById('labour_cost4').innerHTML = Math.ceil(data.labour_cost);
+  document.getElementById('foh4').innerHTML = Math.ceil(data.foh);
+  // document.getElementById('opex_int4').innerHTML = Math.ceil(data.opex_int);
+  document.getElementById('feed_cost14').innerHTML = Math.ceil(data.feed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('med_cost14').innerHTML = Math.ceil(data.med_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('labour_cost14').innerHTML = Math.ceil(data.labour_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('foh114').innerHTML = Math.ceil(data.foh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  // document.getElementById('opex_int14').innerHTML = Math.ceil(data.opex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   document.getElementById('btn_update').value = id;
 
   document.getElementById('feed1').value = data.feed_cost;
   document.getElementById('med1').value = data.med_cost;
   document.getElementById('labour1').value = data.labour_cost;
   document.getElementById('foh1').value = data.foh;
-  document.getElementById('opex1').value = data.opex_int;
+  // document.getElementById('opex1').value = data.opex_int;
 
-  document.getElementById('stfeed_cost2').innerHTML = Math.ceil(stfeed_cost);
-  document.getElementById('stfeed_cost12').innerHTML = Math.ceil(stfeed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('stmed_cost2').innerHTML = Math.ceil(stmed_cost);
-  document.getElementById('stmed_cost12').innerHTML = Math.ceil(stmed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('stlabour_cost2').innerHTML = Math.ceil(stlabour_cost);
-  document.getElementById('stlabour_cost12').innerHTML = Math.ceil(stlabour_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('stfoh2').innerHTML = Math.ceil(stfoh);
-  document.getElementById('stfoh12').innerHTML = Math.ceil(stfoh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('sttot2').innerHTML = Math.ceil(sttot);
-  document.getElementById('sttot12').innerHTML = Math.ceil(sttot).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('stopex_int2').innerHTML = Math.ceil(stopex_int);
-  document.getElementById('stopex_int12').innerHTML = Math.ceil(stopex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stfeed_cost4').innerHTML = Math.ceil(stfeed_cost);
+  document.getElementById('stfeed_cost14').innerHTML = Math.ceil(stfeed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stmed_cost4').innerHTML = Math.ceil(stmed_cost);
+  document.getElementById('stmed_cost14').innerHTML = Math.ceil(stmed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stlabour_cost4').innerHTML = Math.ceil(stlabour_cost);
+  document.getElementById('stlabour_cost14').innerHTML = Math.ceil(stlabour_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stfoh4').innerHTML = Math.ceil(stfoh);
+  document.getElementById('stfoh14').innerHTML = Math.ceil(stfoh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('sttot4').innerHTML = Math.ceil(sttot);
+  document.getElementById('sttot14').innerHTML = Math.ceil(sttot).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  // document.getElementById('stopex_int4').innerHTML = Math.ceil(stopex_int);
+  // document.getElementById('stopex_int14').innerHTML = Math.ceil(stopex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
   // update a recipe
-  const updatreCalContainer1 = document.querySelector('.recipeshome1');
-  if(updatreCalContainer1){
-    var input = document.getElementById('adg12');
+  const updatreCalContainer3 = document.querySelector('.recipeshome3');
+  if(updatreCalContainer3){
+    var input = document.getElementById('adg14');
     input.addEventListener('keyup', function(event) {
       if (event.keyCode === 13) {
         event.preventDefault();
-        document.getElementById('cal_btn2').click();
-        document.getElementById("purchase_price12").disabled = false;
-        document.getElementById("purchase_price12").readOnly = true;
-        document.getElementById('purchase_price12').focus();
-        document.getElementById("purchase_price12").disabled = true;
+        document.getElementById('cal_btn4').click();
+        document.getElementById("cattle_cost14").disabled = false;
+        document.getElementById("cattle_cost14").readOnly = true;
+        document.getElementById('cattle_cost14').focus();
+        document.getElementById("cattle_cost14").disabled = true;
       }
     });
 
-    updatreCalContainer1.addEventListener('click', evt => {
+    updatreCalContainer3.addEventListener('click', evt => {
       if(evt.target.tagName === 'A'){
-        cal_all2();
-        // const id = evt.target.getAttribute('data-id');
-        var val_purchase_price_all = Number(document.getElementById('purchase_price_all12').value);
-        var val_rate = Number(document.getElementById('rate12').value);
-        var nilai_purchase_price = (val_purchase_price_all-700)/(val_rate*1.05);
-        document.getElementById('purchase_price12').value = (nilai_purchase_price).toFixed(2);
+        cal_all4();
+        const id = evt.target.getAttribute('data-id');
+        var val_cattle_puchase = Number(document.getElementById('cattle_purchase14').value);
+        var val_direc_cost = Number(document.getElementById('direct_cost14').value);
+        var val_oh_interest = Number(document.getElementById('oh_interest14').value);
+        var nilai_cattle_cost1 = val_cattle_puchase+val_direc_cost+val_oh_interest;
+        document.getElementById('cattle_cost14').value = Math.ceil(nilai_cattle_cost1);  
       }
     });
   }
 };
 
 // update recipe data
-const updateRenderRecipe1 = (data, id) => {
-  document.getElementById('feed_cost2').innerHTML = Math.ceil(data.feed_cost);
-  document.getElementById('med_cost2').innerHTML = Math.ceil(data.med_cost);
-  document.getElementById('labour_cost2').innerHTML = Math.ceil(data.labour_cost);
-  document.getElementById('foh2').innerHTML = Math.ceil(data.foh);
-  document.getElementById('opex_int2').innerHTML = Math.ceil(data.opex_int);
-  document.getElementById('feed_cost12').innerHTML = Math.ceil(data.feed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('med_cost12').innerHTML = Math.ceil(data.med_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('labour_cost12').innerHTML = Math.ceil(data.labour_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('foh112').innerHTML = Math.ceil(data.foh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('opex_int12').innerHTML = Math.ceil(data.opex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const updateRenderRecipe3 = (data, id) => {
+  document.getElementById('feed_cost4').innerHTML = Math.ceil(data.feed_cost);
+  document.getElementById('med_cost4').innerHTML = Math.ceil(data.med_cost);
+  document.getElementById('labour_cost4').innerHTML = Math.ceil(data.labour_cost);
+  document.getElementById('foh4').innerHTML = Math.ceil(data.foh);
+  // document.getElementById('opex_int4').innerHTML = Math.ceil(data.opex_int);
+  document.getElementById('feed_cost14').innerHTML = Math.ceil(data.feed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('med_cost14').innerHTML = Math.ceil(data.med_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('labour_cost14').innerHTML = Math.ceil(data.labour_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('foh114').innerHTML = Math.ceil(data.foh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  // document.getElementById('opex_int14').innerHTML = Math.ceil(data.opex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-  var val_cattle_sold_weight = document.getElementById('cattle_sold_weight12').value;
-  var val_cattle_weight = document.getElementById('cattle_weight12').value;
-  var val_adg = document.getElementById('adg12').value;
-  var val_dof = (val_cattle_sold_weight-val_cattle_weight)/val_adg;
-  document.getElementById('dof12').value = val_dof;
-
-  var stfeed_cost = Number(data.feed_cost)*Number(document.getElementById('dof12').value);
-  var stmed_cost = Number(data.med_cost)*Number(document.getElementById('dof12').value);
-  var stlabour_cost = Number(data.labour_cost)*Number(document.getElementById('dof12').value);
-  var stfoh = Number(data.foh)*Number(document.getElementById('dof12').value);
+  var stfeed_cost = Number(data.feed_cost)*Number(document.getElementById('dof14').value);
+  var stmed_cost = Number(data.med_cost)*Number(document.getElementById('dof14').value);
+  var stlabour_cost = Number(data.labour_cost)*Number(document.getElementById('dof14').value);
+  var stfoh = Number(data.foh)*Number(document.getElementById('dof14').value);
   var sttot = stfeed_cost+stmed_cost+stlabour_cost+stfoh;
-  var stopex_int = Number(data.opex_int)*Number(document.getElementById('dof12').value);
+  // var stopex_int = Number(data.opex_int)*Number(document.getElementById('dof14').value);
 
-  document.getElementById('stfeed_cost2').innerHTML = Math.ceil(stfeed_cost);
-  document.getElementById('stfeed_cost12').innerHTML = Math.ceil(stfeed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('stmed_cost2').innerHTML = Math.ceil(stmed_cost);
-  document.getElementById('stmed_cost12').innerHTML = Math.ceil(stmed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('stlabour_cost2').innerHTML = Math.ceil(stlabour_cost);
-  document.getElementById('stlabour_cost12').innerHTML = Math.ceil(stlabour_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('stfoh2').innerHTML = Math.ceil(stfoh);
-  document.getElementById('stfoh12').innerHTML = Math.ceil(stfoh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('sttot2').innerHTML = Math.ceil(sttot);
-  document.getElementById('sttot12').innerHTML = Math.ceil(sttot).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('stopex_int2').innerHTML = Math.ceil(stopex_int);
-  document.getElementById('stopex_int12').innerHTML = Math.ceil(stopex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stfeed_cost4').innerHTML = Math.ceil(stfeed_cost);
+  document.getElementById('stfeed_cost14').innerHTML = Math.ceil(stfeed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stmed_cost4').innerHTML = Math.ceil(stmed_cost);
+  document.getElementById('stmed_cost14').innerHTML = Math.ceil(stmed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stlabour_cost4').innerHTML = Math.ceil(stlabour_cost);
+  document.getElementById('stlabour_cost14').innerHTML = Math.ceil(stlabour_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stfoh4').innerHTML = Math.ceil(stfoh);
+  document.getElementById('stfoh14').innerHTML = Math.ceil(stfoh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('sttot4').innerHTML = Math.ceil(sttot);
+  document.getElementById('sttot14').innerHTML = Math.ceil(sttot).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  // document.getElementById('stopex_int4').innerHTML = Math.ceil(stopex_int);
+  // document.getElementById('stopex_int14').innerHTML = Math.ceil(stopex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  var val_dof = Number(document.getElementById('dof14').value);
+  var val_cattle_weight = Number(document.getElementById('cattle_weight14').value);
+  var val_adg = Number(document.getElementById('adg14').value);
+  var val_rate = Number(document.getElementById('rate14').value);
+  var val_purchase_price = Number(document.getElementById('purchase_price14').value);
+  // var val_direct_cost = Number(data.direct_cost);
+  // var val_oh_interest = Number(data.oh_interest);
+  var val_cattle_sold_weight = val_cattle_weight+(val_dof*val_adg);
+  var val_purchase_price_all = (val_rate*val_purchase_price)+700;
+  var val_cattle_purchase = val_purchase_price_all*val_cattle_weight/val_cattle_sold_weight;
   
-  var val_cattle_sold_weight = Number(document.getElementById('cattle_sold_weight12').value);
-  document.getElementById('direct_cost12').value = Math.ceil(sttot/val_cattle_sold_weight);
-  document.getElementById('oh_interest12').value = Math.ceil(stopex_int/val_cattle_sold_weight);
-  var val_cattle_purchase =document.getElementById('cattle_cost12').value - document.getElementById('oh_interest12').value - document.getElementById('direct_cost12').value;
-  document.getElementById('cattle_purchase12').value = Math.ceil(val_cattle_purchase);
-  
-  var val_purchase_price_all = (document.getElementById('cattle_purchase12').value*val_cattle_sold_weight)/val_cattle_weight;
-  document.getElementById('purchase_price_all12').value = val_purchase_price_all;
-  // val_purchase_price = (document.getElementById('purchase_price_all12').value-700)/(document.getElementById('rate12').value*1.05);
-  document.getElementById('purchase_price12').value = "";
+  document.getElementById('purchase_price_all14').value = Math.ceil(val_purchase_price_all);
+  document.getElementById('cattle_sold_weight14').value = Math.ceil(val_cattle_sold_weight);
+  document.getElementById('cattle_purchase14').value = Math.ceil(val_cattle_purchase);
+  // var val_sttot = Number(document.getElementById('sttot').textContent);
+  // var val_stopex_int = Number(document.getElementById('stopex_int').textContent);
+  document.getElementById('direct_cost14').value = Math.ceil(sttot/val_cattle_sold_weight);
+  document.getElementById('oh_interest14').value = Math.ceil(0/val_cattle_sold_weight);
+  // var val_cattle_purchase1 = Number(document.getElementById('cattle_purchase1').value);
+  // var val_tot_cattle_cost = val_cattle_purchase+val_direct_cost+val_oh_interest;
+  document.getElementById('cattle_cost14').value = "";
 };
 
-function cal_all2(){
+function cal_all4(){
   console.log("OK");
-  var val_cattle_sold_weight = Number(document.getElementById('cattle_sold_weight12').value);
-  console.log(val_cattle_sold_weight);
-  var val_cattle_weight = Number(document.getElementById('cattle_weight12').value);
-  var val_adg = Number(document.getElementById('adg12').value);
-  document.getElementById('dof12').value = Number((val_cattle_sold_weight/val_adg)-(val_cattle_weight/val_adg)).toFixed(2);
-
-  var stfeed_cost = Number(document.getElementById('feed_cost2').textContent)*Number(document.getElementById('dof12').value);
-  var stmed_cost = Number(document.getElementById('med_cost2').textContent)*Number(document.getElementById('dof12').value);
-  var stlabour_cost = Number(document.getElementById('labour_cost2').textContent)*Number(document.getElementById('dof12').value);
-  var stfoh = Number(document.getElementById('foh2').textContent)*Number(document.getElementById('dof12').value);
+  var val_dof = Number(document.getElementById('dof14').value);
+  var val_cattle_weight = Number(document.getElementById('cattle_weight14').value);
+  var val_adg = Number(document.getElementById('adg14').value);
+  var val_rate = Number(document.getElementById('rate14').value);
+  var val_purchase_price = Number(document.getElementById('purchase_price14').value);
+  // var val_direct_cost = Number(document.getElementById('direct_cost1').value);
+  // var val_oh_interest = Number(document.getElementById('oh_interest1').value);
+  var val_cattle_sold_weight = val_cattle_weight+(val_dof*val_adg);
+  var val_purchase_price_all = (val_rate*val_purchase_price)+700;
+  var val_cattle_purchase = val_purchase_price_all*val_cattle_weight/val_cattle_sold_weight;
+  
+  var stfeed_cost = Number(document.getElementById('feed_cost4').textContent)*Number(document.getElementById('dof14').value);
+  var stmed_cost = Number(document.getElementById('med_cost4').textContent)*Number(document.getElementById('dof14').value);
+  var stlabour_cost = Number(document.getElementById('labour_cost4').textContent)*Number(document.getElementById('dof14').value);
+  var stfoh = Number(document.getElementById('foh4').textContent)*Number(document.getElementById('dof14').value);
   var sttot = stfeed_cost+stmed_cost+stlabour_cost+stfoh;
-  var stopex_int = Number(document.getElementById('opex_int2').textContent)*Number(document.getElementById('dof12').value);
+  // var stopex_int = Number(document.getElementById('opex_int4').textContent)*Number(document.getElementById('dof14').value);
+  document.getElementById('stfeed_cost4').innerHTML = Math.ceil(stfeed_cost);
+  document.getElementById('stfeed_cost14').innerHTML = Math.ceil(stfeed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stmed_cost4').innerHTML = Math.ceil(stmed_cost);
+  document.getElementById('stmed_cost14').innerHTML = Math.ceil(stmed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stlabour_cost4').innerHTML = Math.ceil(stlabour_cost);
+  document.getElementById('stlabour_cost14').innerHTML = Math.ceil(stlabour_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stfoh4').innerHTML = Math.ceil(stfoh);
+  document.getElementById('stfoh14').innerHTML = Math.ceil(stfoh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('sttot4').innerHTML = Math.ceil(sttot);
+  document.getElementById('sttot14').innerHTML = Math.ceil(sttot).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  // document.getElementById('stopex_int4').innerHTML = Math.ceil(stopex_int);
+  // document.getElementById('stopex_int14').innerHTML = Math.ceil(stopex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-  document.getElementById('stfeed_cost2').innerHTML = Math.ceil(stfeed_cost);
-  document.getElementById('stfeed_cost12').innerHTML = Math.ceil(stfeed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('stmed_cost2').innerHTML = Math.ceil(stmed_cost);
-  document.getElementById('stmed_cost12').innerHTML = Math.ceil(stmed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('stlabour_cost2').innerHTML = Math.ceil(stlabour_cost);
-  document.getElementById('stlabour_cost12').innerHTML = Math.ceil(stlabour_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('stfoh2').innerHTML = Math.ceil(stfoh);
-  document.getElementById('stfoh12').innerHTML = Math.ceil(stfoh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('sttot2').innerHTML = Math.ceil(sttot);
-  document.getElementById('sttot12').innerHTML = Math.ceil(sttot).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  document.getElementById('stopex_int2').innerHTML = Math.ceil(stopex_int);
-  document.getElementById('stopex_int12').innerHTML = Math.ceil(stopex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  
-  var val_cattle_sold_weight = Number(document.getElementById('cattle_sold_weight12').value);
-  document.getElementById('direct_cost12').value = Math.ceil(sttot/val_cattle_sold_weight);
-  document.getElementById('oh_interest12').value = Math.ceil(stopex_int/val_cattle_sold_weight);
-  var val_cattle_purchase =Number(document.getElementById('cattle_cost12').value) - Number(document.getElementById('oh_interest12').value) - Number(document.getElementById('direct_cost12').value);
-  document.getElementById('cattle_purchase12').value = Math.ceil(val_cattle_purchase);
-  
-  var val_purchase_price_all = (Number(document.getElementById('cattle_purchase12').value)*val_cattle_sold_weight)/val_cattle_weight;
-  document.getElementById('purchase_price_all12').value = val_purchase_price_all.toFixed(2);
-  document.getElementById('purchase_price12').value = "";
+  var val_sttot = Number(document.getElementById('sttot4').textContent);
+  // var val_stopex_int = Number(document.getElementById('stopex_int4').textContent);
+  document.getElementById('purchase_price_all14').value = Math.ceil(val_purchase_price_all);
+  document.getElementById('cattle_sold_weight14').value = Math.ceil(val_cattle_sold_weight);
+  document.getElementById('cattle_purchase14').value = Math.ceil(val_cattle_purchase);
+  document.getElementById('direct_cost14').value = Math.ceil(val_sttot/val_cattle_sold_weight);
+  document.getElementById('oh_interest14').value = Math.ceil(0/val_cattle_sold_weight);
+  // var val_cattle_purchase1 = Number(document.getElementById('cattle_purchase1').value);
+  // var val_tot_cattle_cost = val_cattle_purchase1+val_direct_cost+val_oh_interest;
+  document.getElementById('cattle_cost14').value = "";
 }
-
 
 // render recipe data
 const renderRecipe2 = (data, id) => {
@@ -1145,6 +1140,360 @@ function cal_all3(){
   // var val_cattle_purchase1 = Number(document.getElementById('cattle_purchase1').value);
   // var val_tot_cattle_cost = val_cattle_purchase1+val_direct_cost+val_oh_interest;
   document.getElementById('cattle_cost13').value = "";
+}
+
+// render recipe data
+const renderRecipe1 = (data, id) => {
+  const html = `
+      <div id="id_nav" class="card-panel recipe white row" data-id="${id}">
+        <div class="recipe-details">
+            <div class="recipe-title">Purchase Price Calculation</div>
+            <div class="recipe-ingredients">Simulasi untuk menghitung target harga USD/Kg pembelian import sapi dengan asumsi BEP price</div>
+            <div></div>
+            <form>
+            <table>
+              <tr style="border:none;">
+                <td style="width:48%">  
+                  <div class="recipe-ingredients">
+                    <label for="title">Rate (Rp/USD)</label>
+                    <input id="rate12" onkeyup="cal_all2()" placeholder="Rate sesuai market" step="any" type="number" value="${data.rate}" class="validate">
+                  </div>
+                </td>
+                <td style="width:52%">
+                  <div class="recipe-ingredients">
+                    <label for="title">Cattle Weight (Kg/Head)</label>
+                    <input id="cattle_weight12" onkeyup="cal_all2()" placeholder="Berat awal import sapi" step="any" type="number" value="${data.cattle_weight}" class="validate">
+                  </div>  
+                </td>
+              </tr>
+              <tr style="border:none;">
+                <td colspan="2">  
+                  <div class="recipe-ingredients-result">
+                    <label style="font-size: 13px;">Total Cattle Cost (Rp/Kg)</label>
+                    <input id="cattle_cost12" onkeyup="cal_all2()" placeholder="Target BEP price sebelum target margin" step="any" type="number" value="${data.cattle_cost}" class="validate">
+                  </div> 
+                </td>
+              </tr>
+              <tr style="border:none;">
+                <td>
+                  <div class="recipe-ingredients">
+                    <label for="title">Purchase Price all (Rp/Kg)</label>
+                    <input id="purchase_price_all12" onkeyup="cal_all2()" disabled style="background-color:#3d9ceb;"  step="any" type="number" value="${data.purchase_price_all}" class="validate">
+                  </div>
+                </td>
+                <td>
+                  <div class="recipe-ingredients">
+                    <label for="title">Cattle sold weight (Kg/Head)</label>
+                    <input id="cattle_sold_weight12" onkeyup="cal_all2()" placeholder="Berat jual sapi" step="any" type="number" value="${data.cattle_sold_weight}" class="validate">
+                  </div>
+                </td>
+              </tr>
+              <tr style="border:none;">
+                <td>
+                  <div class="recipe-ingredients">
+                    <label for="title">Assumption DoF (Days)</label>
+                    <input disabled style="background-color:#3d9ceb;" id="dof12"  step="any" type="number" onkeyup="cal_all2()" value="${data.dof}" class="validate">
+                  </div>
+                </td>
+                <td>
+                  <div class="recipe-ingredients">
+                    <label for="title">Assumption ADG (Kg/Day)</label>
+                    <input id="adg12" placeholder="Target ADG" step="any" type="number" onkeyup="cal_all2()" value="${data.adg}" class="validate">
+                  </div>
+                </td>
+              </tr>
+              <tr style="border:none;">
+                <td colspan="2">
+                  <div class="recipe-ingredients">
+                    <label for="title">Cattle Finish Good (Rp/Kg)</label>
+                    <input id="cattle_purchase12" onkeyup="cal_all2()" disabled style="background-color:#3d9ceb;"  step="any" type="number" value="${data.cattle_purchase}" class="validate">
+                  </div>
+                </td>
+              </tr>
+              <tr style="border:none;">
+                <td>
+                  <div class="recipe-ingredients">
+                    <label for="title">Direct Cost (Rp/Kg)</label>
+                    <input id="direct_cost12" onkeyup="cal_all2()" step="any" type="number" disabled style="background-color:#3d9ceb;" value="${data.direct_cost}" class="validate">
+                  </div>
+                </td>
+                <td>
+                  <div class="recipe-ingredients">
+                    <label for="title">OH + interest (Rp/Kg)</label>
+                    <input id="oh_interest12" onkeyup="cal_all2()" step="any" type="number" disabled style="background-color:#3d9ceb;" value="${data.oh_interest}" class="validate">
+                  </div>
+                </td>
+              </tr>
+              <tr style="border:none;">
+                <td colspan="2">
+                  <div class="recipe-ingredients">
+                    <label for="title" style="font-weight: bold;">Purchase Price (USD/Kg)</label>
+                    <input disabled style="background-color: #d8f2c7;font-weight: bold;" id="purchase_price12" onkeyup="cal_all2()" value=""  step="any" type="number" class="validate">
+                  </div>
+                </td>
+              </tr>
+            <table>
+            <div class="center">
+              <a style="border-radius:15px; margin-bottom:20px;" id="cal_btn2" class="btn-small btn-large update-btn" data-id="">
+                Calculate
+              </a>
+            </div>
+            </form> 
+            <div >
+              Cost Reference :
+                <i class="right material-icons sidenav-trigger" data-target="side-form">settings</i>
+              <table>
+                <th>Cost Calculation</th>
+                <th>
+                  <div style="float:right;">
+                    Rp/hd/day
+                  </div>
+                </th>
+                <th><div style="float:right;">xDoF</div></th>
+                <tr style="border:none;" class="recipe-ingredients-result1"> 
+                  <td>Feed Cost</td>
+                  <td>
+                    <div style="float:right;">
+                      <label id="feed_cost2" style="display:none;font-size: 13px;"></label>
+                      <label id="feed_cost12" style="font-size: 13px;"></label>
+                    </div>  
+                  </td>
+                  <td>
+                    <div style="float:right;">
+                      <label id="stfeed_cost2" onchange="cal_all2()" style="display:none;font-size: 13px;font-weight: bold;"></label>
+                      <label id="stfeed_cost12" style="font-size: 13px;font-weight: bold;"></label>
+                    </div>
+                  </td>
+                </tr>
+                <tr style="border:none;" class="recipe-ingredients-result1"> 
+                  <td>Med Cost</td>
+                  <td>
+                    <div style="float:right;">
+                      <label id="med_cost2" style="display:none;font-size: 13px;"></label>
+                      <label id="med_cost12" style="font-size: 13px;"></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div style="float:right;">
+                      <label id="stmed_cost2" onchange="cal_all2()" style="display:none;font-size: 13px;font-weight: bold;"></label>
+                      <label id="stmed_cost12"  style="font-size: 13px;font-weight: bold;"></label>
+                    </div>
+                  </td>
+                </tr>
+                <tr style="border:none;" class="recipe-ingredients-result1"> 
+                  <td>Labour Cost</td>
+                  <td>
+                    <div style="float:right;">
+                      <label id="labour_cost2" style="display:none;font-size: 13px;"></label>
+                      <label id="labour_cost12" style="font-size: 13px;"></label>
+                    </div>
+                  </td>
+                  <td>
+                  <div style="float:right;">
+                    <label id="stlabour_cost2" onchange="cal_all2()" style="display:none;font-size: 13px;font-weight: bold;"></label>
+                    <label id="stlabour_cost12"  style="font-size: 13px;font-weight: bold;"></label>
+                  </div>
+                  </td>
+                </tr>
+                <tr class="recipe-ingredients-result1"> 
+                  <td>Foh</td>
+                  <td>
+                  <div style="float:right;">
+                    <label id="foh2" style="display:none;font-size: 13px;"></label>
+                    <label id="foh112" style="font-size: 13px;"></label>
+                  </div>
+                  </td>
+                  <td>
+                    <div style="float:right;">
+                      <label id="stfoh2" onchange="cal_all2()" style="display:none;font-size: 13px;font-weight: bold;"></label>
+                      <label id="stfoh12"  style="font-size: 13px;font-weight: bold;"></label>
+                    </div>
+                  </td>
+                </tr>
+                <tr style="border:none;" class="recipe-ingredients-result1"> 
+                  <td colspan="2">Total</td>
+                  <td>
+                    <div style="float:right;">
+                      <label id="sttot2" onchange="cal_all2()" style="display:none;font-size: 13px;font-weight: bold;"></label>
+                      <label id="sttot12"  style="font-size: 13px;font-weight: bold;"></label>
+                    </div>
+                  </td>
+                </tr>
+                <tr style="border:none;" class="recipe-ingredients-result1"> 
+                  <td>OPEX + Interest</td>
+                  <td>
+                    <div style="float:right;">
+                      <label id="opex_int2" style="display:none;font-size: 13px;"></label>
+                      <label id="opex_int12" style="font-size: 13px;"></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div style="float:right;">
+                      <label id="stopex_int2" onchange="cal_all2()" style="display:none;font-size: 13px;font-weight: bold;"></label>
+                      <label id="stopex_int12" right style="font-size: 13px;font-weight: bold;"></label>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+        </div>
+      </div>
+  `;
+  recipes1.innerHTML += html;
+
+  var stfeed_cost = Number(data.feed_cost)*Number(document.getElementById('dof12').value);
+  var stmed_cost = Number(data.med_cost)*Number(document.getElementById('dof12').value);
+  var stlabour_cost = Number(data.labour_cost)*Number(document.getElementById('dof12').value);
+  var stfoh = Number(data.foh)*Number(document.getElementById('dof12').value);
+  var sttot = stfeed_cost+stmed_cost+stlabour_cost+stfoh;
+  var stopex_int = Number(data.opex_int)*Number(document.getElementById('dof12').value);
+  document.getElementById('feed_cost2').innerHTML = Math.ceil(data.feed_cost);
+  document.getElementById('med_cost2').innerHTML = Math.ceil(data.med_cost);
+  document.getElementById('labour_cost2').innerHTML = Math.ceil(data.labour_cost);
+  document.getElementById('foh2').innerHTML = Math.ceil(data.foh);
+  document.getElementById('opex_int2').innerHTML = Math.ceil(data.opex_int);
+  document.getElementById('feed_cost12').innerHTML = Math.ceil(data.feed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('med_cost12').innerHTML = Math.ceil(data.med_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('labour_cost12').innerHTML = Math.ceil(data.labour_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('foh112').innerHTML = Math.ceil(data.foh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('opex_int12').innerHTML = Math.ceil(data.opex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('btn_update').value = id;
+
+  document.getElementById('feed1').value = data.feed_cost;
+  document.getElementById('med1').value = data.med_cost;
+  document.getElementById('labour1').value = data.labour_cost;
+  document.getElementById('foh1').value = data.foh;
+  document.getElementById('opex1').value = data.opex_int;
+
+  document.getElementById('stfeed_cost2').innerHTML = Math.ceil(stfeed_cost);
+  document.getElementById('stfeed_cost12').innerHTML = Math.ceil(stfeed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stmed_cost2').innerHTML = Math.ceil(stmed_cost);
+  document.getElementById('stmed_cost12').innerHTML = Math.ceil(stmed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stlabour_cost2').innerHTML = Math.ceil(stlabour_cost);
+  document.getElementById('stlabour_cost12').innerHTML = Math.ceil(stlabour_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stfoh2').innerHTML = Math.ceil(stfoh);
+  document.getElementById('stfoh12').innerHTML = Math.ceil(stfoh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('sttot2').innerHTML = Math.ceil(sttot);
+  document.getElementById('sttot12').innerHTML = Math.ceil(sttot).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stopex_int2').innerHTML = Math.ceil(stopex_int);
+  document.getElementById('stopex_int12').innerHTML = Math.ceil(stopex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+  // update a recipe
+  const updatreCalContainer1 = document.querySelector('.recipeshome1');
+  if(updatreCalContainer1){
+    var input = document.getElementById('adg12');
+    input.addEventListener('keyup', function(event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById('cal_btn2').click();
+        document.getElementById("purchase_price12").disabled = false;
+        document.getElementById("purchase_price12").readOnly = true;
+        document.getElementById('purchase_price12').focus();
+        document.getElementById("purchase_price12").disabled = true;
+      }
+    });
+
+    updatreCalContainer1.addEventListener('click', evt => {
+      if(evt.target.tagName === 'A'){
+        cal_all2();
+        // const id = evt.target.getAttribute('data-id');
+        var val_purchase_price_all = Number(document.getElementById('purchase_price_all12').value);
+        var val_rate = Number(document.getElementById('rate12').value);
+        var nilai_purchase_price = (val_purchase_price_all-700)/(val_rate*1.05);
+        document.getElementById('purchase_price12').value = (nilai_purchase_price).toFixed(2);
+      }
+    });
+  }
+};
+
+// update recipe data
+const updateRenderRecipe1 = (data, id) => {
+  document.getElementById('feed_cost2').innerHTML = Math.ceil(data.feed_cost);
+  document.getElementById('med_cost2').innerHTML = Math.ceil(data.med_cost);
+  document.getElementById('labour_cost2').innerHTML = Math.ceil(data.labour_cost);
+  document.getElementById('foh2').innerHTML = Math.ceil(data.foh);
+  document.getElementById('opex_int2').innerHTML = Math.ceil(data.opex_int);
+  document.getElementById('feed_cost12').innerHTML = Math.ceil(data.feed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('med_cost12').innerHTML = Math.ceil(data.med_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('labour_cost12').innerHTML = Math.ceil(data.labour_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('foh112').innerHTML = Math.ceil(data.foh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('opex_int12').innerHTML = Math.ceil(data.opex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+  var val_cattle_sold_weight = document.getElementById('cattle_sold_weight12').value;
+  var val_cattle_weight = document.getElementById('cattle_weight12').value;
+  var val_adg = document.getElementById('adg12').value;
+  var val_dof = (val_cattle_sold_weight-val_cattle_weight)/val_adg;
+  document.getElementById('dof12').value = val_dof;
+
+  var stfeed_cost = Number(data.feed_cost)*Number(document.getElementById('dof12').value);
+  var stmed_cost = Number(data.med_cost)*Number(document.getElementById('dof12').value);
+  var stlabour_cost = Number(data.labour_cost)*Number(document.getElementById('dof12').value);
+  var stfoh = Number(data.foh)*Number(document.getElementById('dof12').value);
+  var sttot = stfeed_cost+stmed_cost+stlabour_cost+stfoh;
+  var stopex_int = Number(data.opex_int)*Number(document.getElementById('dof12').value);
+
+  document.getElementById('stfeed_cost2').innerHTML = Math.ceil(stfeed_cost);
+  document.getElementById('stfeed_cost12').innerHTML = Math.ceil(stfeed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stmed_cost2').innerHTML = Math.ceil(stmed_cost);
+  document.getElementById('stmed_cost12').innerHTML = Math.ceil(stmed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stlabour_cost2').innerHTML = Math.ceil(stlabour_cost);
+  document.getElementById('stlabour_cost12').innerHTML = Math.ceil(stlabour_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stfoh2').innerHTML = Math.ceil(stfoh);
+  document.getElementById('stfoh12').innerHTML = Math.ceil(stfoh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('sttot2').innerHTML = Math.ceil(sttot);
+  document.getElementById('sttot12').innerHTML = Math.ceil(sttot).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stopex_int2').innerHTML = Math.ceil(stopex_int);
+  document.getElementById('stopex_int12').innerHTML = Math.ceil(stopex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  
+  var val_cattle_sold_weight = Number(document.getElementById('cattle_sold_weight12').value);
+  document.getElementById('direct_cost12').value = Math.ceil(sttot/val_cattle_sold_weight);
+  document.getElementById('oh_interest12').value = Math.ceil(stopex_int/val_cattle_sold_weight);
+  var val_cattle_purchase =document.getElementById('cattle_cost12').value - document.getElementById('oh_interest12').value - document.getElementById('direct_cost12').value;
+  document.getElementById('cattle_purchase12').value = Math.ceil(val_cattle_purchase);
+  
+  var val_purchase_price_all = (document.getElementById('cattle_purchase12').value*val_cattle_sold_weight)/val_cattle_weight;
+  document.getElementById('purchase_price_all12').value = val_purchase_price_all;
+  // val_purchase_price = (document.getElementById('purchase_price_all12').value-700)/(document.getElementById('rate12').value*1.05);
+  document.getElementById('purchase_price12').value = "";
+};
+
+function cal_all2(){
+  console.log("OK");
+  var val_cattle_sold_weight = Number(document.getElementById('cattle_sold_weight12').value);
+  console.log(val_cattle_sold_weight);
+  var val_cattle_weight = Number(document.getElementById('cattle_weight12').value);
+  var val_adg = Number(document.getElementById('adg12').value);
+  document.getElementById('dof12').value = Number((val_cattle_sold_weight/val_adg)-(val_cattle_weight/val_adg)).toFixed(2);
+
+  var stfeed_cost = Number(document.getElementById('feed_cost2').textContent)*Number(document.getElementById('dof12').value);
+  var stmed_cost = Number(document.getElementById('med_cost2').textContent)*Number(document.getElementById('dof12').value);
+  var stlabour_cost = Number(document.getElementById('labour_cost2').textContent)*Number(document.getElementById('dof12').value);
+  var stfoh = Number(document.getElementById('foh2').textContent)*Number(document.getElementById('dof12').value);
+  var sttot = stfeed_cost+stmed_cost+stlabour_cost+stfoh;
+  var stopex_int = Number(document.getElementById('opex_int2').textContent)*Number(document.getElementById('dof12').value);
+
+  document.getElementById('stfeed_cost2').innerHTML = Math.ceil(stfeed_cost);
+  document.getElementById('stfeed_cost12').innerHTML = Math.ceil(stfeed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stmed_cost2').innerHTML = Math.ceil(stmed_cost);
+  document.getElementById('stmed_cost12').innerHTML = Math.ceil(stmed_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stlabour_cost2').innerHTML = Math.ceil(stlabour_cost);
+  document.getElementById('stlabour_cost12').innerHTML = Math.ceil(stlabour_cost).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stfoh2').innerHTML = Math.ceil(stfoh);
+  document.getElementById('stfoh12').innerHTML = Math.ceil(stfoh).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('sttot2').innerHTML = Math.ceil(sttot);
+  document.getElementById('sttot12').innerHTML = Math.ceil(sttot).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  document.getElementById('stopex_int2').innerHTML = Math.ceil(stopex_int);
+  document.getElementById('stopex_int12').innerHTML = Math.ceil(stopex_int).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  
+  var val_cattle_sold_weight = Number(document.getElementById('cattle_sold_weight12').value);
+  document.getElementById('direct_cost12').value = Math.ceil(sttot/val_cattle_sold_weight);
+  document.getElementById('oh_interest12').value = Math.ceil(stopex_int/val_cattle_sold_weight);
+  var val_cattle_purchase =Number(document.getElementById('cattle_cost12').value) - Number(document.getElementById('oh_interest12').value) - Number(document.getElementById('direct_cost12').value);
+  document.getElementById('cattle_purchase12').value = Math.ceil(val_cattle_purchase);
+  
+  var val_purchase_price_all = (Number(document.getElementById('cattle_purchase12').value)*val_cattle_sold_weight)/val_cattle_weight;
+  document.getElementById('purchase_price_all12').value = val_purchase_price_all.toFixed(2);
+  document.getElementById('purchase_price12').value = "";
 }
 
 // render recipe1 data
