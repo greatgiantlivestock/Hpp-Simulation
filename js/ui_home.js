@@ -34,7 +34,7 @@ const renderRecipe = (data, id) => {
   const html = `
       <div id="id_nav" class="card-panel recipe white row" data-id="${id}">
         <div class="recipe-details">
-            <div class="recipe-title">Total Cattle Cost Calculation</div>
+            <div class="recipe-title">Total Cattle Cost Calculation (Contribution Margin)</div>
             <div class="recipe-ingredients">Simulasi untuk menghitung target BEP price sebagai dasar pantauan harga jual</div>
             <div></div>
             <form>
@@ -401,7 +401,7 @@ const renderRecipe3 = (data, id) => {
   const html = `
       <div id="id_nav" class="card-panel recipe white row" data-id="${id}">
         <div class="recipe-details">
-            <div class="recipe-title">Total Cattle Cost Calculation</div>
+            <div class="recipe-title">Total Cattle Cost Calculation (Gross Margin)</div>
             <div class="recipe-ingredients">Simulasi untuk menghitung target BEP price sebagai dasar pantauan harga jual (exclude BM 5%)</div>
             <div></div>
             <form>
@@ -750,7 +750,7 @@ const renderRecipe2 = (data, id) => {
   const html = `
       <div id="id_nav" class="card-panel recipe white row" data-id="${id}">
         <div class="recipe-details">
-            <div class="recipe-title">Total Cattle Cost Calculation</div>
+            <div class="recipe-title">Total Cattle Cost Calculation (NIBT)</div>
             <div class="recipe-ingredients">Simulasi untuk menghitung target BEP price sebagai dasar pantauan harga jual (exclude BM 5%)</div>
             <div></div>
             <form>
