@@ -34,7 +34,7 @@ const renderRecipe2 = (data, id) => {
   const html = `
       <div id="id_nav" class="card-panel recipe white row" data-id="${id}">
         <div class="recipe-details">
-            <div class="recipe-title">Total Cattle Cost Calculation (NIBT)</div>
+            <div class="recipe-title">Total Cattle Cost Calculation</div>
             <div class="recipe-ingredients">Simulasi untuk menghitung target BEP price sebagai dasar pantauan harga jual (exclude BM 5%)</div>
             <div></div>
             <form>
@@ -456,7 +456,7 @@ const renderRecipe1 = (data, id) => {
               <tr style="border:none;">
                 <td colspan="2">  
                   <div class="recipe-ingredients-result">
-                    <label style="font-size: 13px;">Total Cattle Cost (Rp/Kg)</label>
+                    <label style="font-size: 13px;">Sales Price (Rp/Kg)</label>
                     <input style="font-weight: bold;" id="cattle_cost12" onkeyup="cal_all2()" placeholder="Target BEP price sebelum target margin" step="any" type="number" value="${data.cattle_cost}" class="validate">
                   </div> 
                 </td>
